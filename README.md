@@ -2,6 +2,10 @@
 * [x] uml
 - [ ] routine activity
 * [ ] business rules
+* [ ] database
+* [ ] testing
+* [ ] final product 
+* [ ] final presentation
 
 dari yang disampaikan oleh dokter Slamet Suswatoro:
 # proses lembar konsultasi dalam aplikasi web e-MRs
@@ -11,7 +15,7 @@ terdapat beberapa bagian yang dipecah berdasarkan tiap halaman yang dilalui oleh
 ## login
 berisi authentikasi langsung dari pihak rumah sakit saja, tanpa ada register.
 
-username: String @Unique
+username: s String @Unique
 password: String
 
 action dari dokter : isi username dan password
