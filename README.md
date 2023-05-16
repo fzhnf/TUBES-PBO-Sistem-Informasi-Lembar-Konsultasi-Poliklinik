@@ -1,19 +1,23 @@
 
-* [-] uml
+* [x] uml
 - [ ] routine activity
 * [ ] business rules
 
 dari yang disampaikan oleh dokter Slamet Suswatoro:
+# proses lembar konsultasi dalam aplikasi web e-MRs
 
-### laporan diagnosa dokter dalam aplikasi web e-MRs
+terdapat beberapa bagian yang dipecah berdasarkan tiap halaman yang dilalui oleh dokter atau asisten dokter ketika mengerjakan assesmen lembar konsultasi, dan melihat sejarah lembar konsultasi, dari bagian tersebut dimulai dari:
 
 ## login
 berisi authentikasi langsung dari pihak rumah sakit saja, tanpa ada register.
 
+username: String @Unique
+password: String
+
 action dari dokter : isi username dan password
 
 ## homepage
-memiliki menu di kiri halaman yaitu:
+setiap halaman memiliki sidebar yaitu:
 - daftar pasien
 - radiologi
 - obat
@@ -28,26 +32,20 @@ memiliki menu di kiri halaman yaitu:
 action dari dokter: pencet daftar pasien
 
 ## halaman daftar pasien
-memiliki menu daftar assesmen dan konsultasi
+memiliki dua tabel besar terpisah yang satu berisi daftar assesmen (lembar konsultasi) dan satunya tabel sejarah konsultasi (lembar konsultasi).
 
-dengan tabel seperti berikut:
-
+keduanya dengan format tabel seperti berikut:
 no | tanggal perawat assesmen |  No MR | No Registrasi | Nama | Jenis Kelamin | Tanggal Lahir  | Klinik | Action 
 --|--|--|--|--|--|--|--|--
 int| dd-mm-yyyy | id | id | String | Char | dd-mm-yyyy | String | ???
 
-jika belum di kerjakan oleh dokter, lembar konsultasi berada pada tabel assesmen, jika sudah, maka dipada tabel konsultasi
-
+lembar konsultasi di input hanya dari admin, lalu jika dokter telah mengubah (mengisi) lembar terebut pada tabel assesmen, maka lembar tersebut akan berpindah ke tabel konsultasi.
 
 action dari dokter: 
 - menyelesaikan assesmen
 - melihat daftar konsultasi
-Lembar CPPT terdiri dari 5 kolom, yaitu:
-* Tgl/jam
-* Profesi/bagian
-* Hasil pemeriksaan, analisa, rencana dan penatalaksanaan pasien
-* Instruksi nakes termasuk pasca bedah/prosedur
-* Verifikasi dari Dokter Penanggung Jawab Pelayanan DPJP
+
+
 
 ## halaman lembar konsultasi
 
@@ -56,6 +54,13 @@ berupa kumpulan data, yang berisikan:
 * assesmen awal keperawatan rawat jalan
 * riwayat cppt: BLOB
 >BLOB (objek besar biner) akan memungkinkan Anda untuk menyimpan file biner seperti file DOC, file yang dapat dieksekusi, dan file PDF.
+>Lembar CPPT terdiri dari 5 kolom, yaitu:
+>1. Tgl/jam
+>2. Profesi/bagian
+>3. Hasil pemeriksaan, analisa, rencana dan penatalaksanaan pasien
+>4. Instruksi nakes termasuk pasca bedah/prosedur
+>5. Verifikasi dari Dokter Penanggung Jawab Pelayanan DPJP
+
 * lembar konsultasi:
   1. format penomoran Rekaman Medis
   2. String
@@ -81,22 +86,21 @@ berupa kumpulan data, yang berisikan:
 * riwayat pemberian obat: riwayat obat
 * riwayat pemeriksaan EKG: pemeriksaan EKG
 
->ICD-9
->ICD-9 dipublikasikan oleh [WHO](https://id.wikipedia.org/wiki/WHO "WHO") pada tahun 1975. Beberapa waktu kemudian, [Pusat Statistik Kesehatan Nasional](https://id.wikipedia.org/w/index.php?title=Pusat_Statistik_Kesehatan_Nasional&action=edit&redlink=1 "Pusat Statistik Kesehatan Nasional (halaman belum tersedia)") (NCHS) [Amerika Serikat](https://id.wikipedia.org/wiki/Amerika_Serikat "Amerika Serikat") mengembangkan sistem ini dan menyebutnya sebagai "ICD-9-CM". Penambahan CM merujuk pada modifikasi klinis (_clinical modification_).[[2]](https://id.wikipedia.org/wiki/Klasifikasi_Penyakit_Internasional#cite_note-2)
->ICD-10
->Artikel utama: [Daftar kode ICD-10](https://id.wikipedia.org/wiki/Daftar_kode_ICD-10 "Daftar kode ICD-10")
->ICD-10 mulai dikerjakan pada tahun 1983 dan disahkan oleh Majelis Kesehatan Dunia ke-43 pada Mei 1990. Versi ini mulai digunakan di negara-negara anggota WHO pada tahun 1994. Sistem klasifikasi ICD-10 memuat lebih dari 55.000 kode, meningkat signifikan dibandingkan 17.000 kode yang tersedia dalam ICD-9.[[3]](https://id.wikipedia.org/wiki/Klasifikasi_Penyakit_Internasional#cite_note-3) Sistem ICD-10
-
 * iCD 10 (primary): drop down berisi list:
   1. ICD10
   2. ???
   3. ???
   4. ???
-
 * ICD 10 (sekunder): string
 * Diagnosis: String.txt
 * ICD 9 (sekunder): string
 * diagnosa banding: String
+>ICD-9 dipublikasikan oleh [WHO](https://id.wikipedia.org/wiki/WHO "WHO") pada tahun 1975. Beberapa waktu kemudian, [Pusat Statistik Kesehatan Nasional](https://id.wikipedia.org/w/index.php?title=Pusat_Statistik_Kesehatan_Nasional&action=edit&redlink=1 "Pusat Statistik Kesehatan Nasional (halaman belum tersedia)") (NCHS) [Amerika Serikat](https://id.wikipedia.org/wiki/Amerika_Serikat "Amerika Serikat") mengembangkan sistem ini dan menyebutnya sebagai "ICD-9-CM". Penambahan CM merujuk pada modifikasi klinis (_clinical modification_).[[2]](https://id.wikipedia.org/wiki/Klasifikasi_Penyakit_Internasional#cite_note-2)
+>ICD-10
+>Artikel utama: [Daftar kode ICD-10](https://id.wikipedia.org/wiki/Daftar_kode_ICD-10 "Daftar kode ICD-10")
+>ICD-10 mulai dikerjakan pada tahun 1983 dan disahkan oleh Majelis Kesehatan Dunia ke-43 pada Mei 1990. Versi ini mulai digunakan di negara-negara anggota WHO pada tahun 1994. Sistem klasifikasi ICD-10 memuat lebih dari 55.000 kode, meningkat signifikan dibandingkan 17.000 kode yang tersedia dalam ICD-9.[[3]](https://id.wikipedia.org/wiki/Klasifikasi_Penyakit_Internasional#cite_note-3) Sistem ICD-10
+
+
 * permintaan laboratorium: input pemeriksaan lab
 * permintaan radiologi: input pemeriksaan radiologi
 * permintaan obat: String.txt
@@ -128,11 +132,11 @@ Dalam konteks aplikasi web eMRs (rekam medis elektronik), "lembar konsultasi" da
 ## our apps
 lalu yang kita buat disini adalah aplikasi rekaman lembar konsultasi, yang merupakan turunan dari eMR ini, mencakup semua dari yang action dokter serta laman laman yang dikunjungi dokter seperti diatas, dokter dan asisten dokter dapat login sebagai perekam lembar konsultasi,
 dapat melihat homepage berisi daftar pasien di table assesmen dan table riwayat konsultasi, dokter bisa membuka setiap query, dimana setiap query itu berupa halaman lembar konsultasi seperti diatas dan mengandung data seperti diatas dan format dari data seperti diatas, lalu dokter dapat CRUD (
-- [-] CREATE
+- [x] CREATE
 - [ ] READ
 - [ ] UPDATE
 - [ ] DELETE
-) setiap lembar konsultasi tersebut. selesai deh :)
+) setiap lembar konsultasi tersebut. 
 
 
-lalu business rules yang diaplikasikan aw
+lalu business rules yang dapat diaplikasikan  kepada aplikasi ini adalah
