@@ -1,4 +1,4 @@
-package tubespbo.emedicalrecords;
+package tubespbo.emedicalrecords.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
