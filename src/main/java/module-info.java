@@ -5,10 +5,9 @@ module tubespbo.emedicalrecords {
     requires mysql.connector.java;
     requires java.sql;
 
-    opens tubespbo.emedicalrecords to javafx.fxml;
+
     exports tubespbo.emedicalrecords;
+    opens tubespbo.emedicalrecords to javafx.fxml, javafx.graphics, javafx.controls, javafx.base;
     exports tubespbo.emedicalrecords.model;
-    opens tubespbo.emedicalrecords.model to javafx.fxml;
-    exports tubespbo.emedicalrecords.controller;
-    opens tubespbo.emedicalrecords.controller to javafx.fxml;
+    opens tubespbo.emedicalrecords.model to javafx.fxml, javafx.graphics, javafx.controls,javafx.base;
 }

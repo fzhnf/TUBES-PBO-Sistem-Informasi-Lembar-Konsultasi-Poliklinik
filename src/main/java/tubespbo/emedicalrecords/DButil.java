@@ -3,7 +3,6 @@ package tubespbo.emedicalrecords;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-
 public class DButil {
     public Connection databaseLink;
 

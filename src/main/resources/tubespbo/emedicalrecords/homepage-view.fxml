@@ -58,26 +58,8 @@
    <right>
       <AnchorPane prefHeight="400.0" prefWidth="650.0" BorderPane.alignment="CENTER">
          <children>
-            <SplitPane dividerPositions="0.5, 0.5" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0">
+            <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0">
               <items>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="600.0">
-                     <children>
-                        <TableView prefHeight="200.0" prefWidth="600.0">
-                          <columns>
-                             <TableColumn maxWidth="33.0" prefWidth="32.0" resizable="false" text="No" />
-                             <TableColumn prefWidth="155.0" text="Tanggal Assessment" />
-                             <TableColumn prefWidth="109.0" text="Nama" />
-                             <TableColumn maxWidth="3000.0" prefWidth="105.0" text="Jenis Kelamin" />
-                             <TableColumn prefWidth="155.0" text="Tanggal lahir" />
-                             <TableColumn prefWidth="108.0" text="Action" />
-                          </columns>
-                           <columnResizePolicy>
-                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                           </columnResizePolicy>
-                        </TableView>
-                     </children>
-                  </AnchorPane>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="600.0" />
                   <TableView prefHeight="200.0" prefWidth="600.0">
                      <columns>
                         <TableColumn maxWidth="33.0" prefWidth="32.0" resizable="false" text="No" />
@@ -87,6 +69,19 @@
                         <TableColumn prefWidth="145.0" text="Tanggal lahir" />
                         <TableColumn prefWidth="118.0" text="Action" />
                      </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+                  <TableView prefHeight="200.0" prefWidth="600.0">
+                    <columns>
+                       <TableColumn maxWidth="33.0" prefWidth="32.0" resizable="false" text="No" />
+                       <TableColumn prefWidth="155.0" text="Tanggal Assessment" />
+                       <TableColumn prefWidth="109.0" text="Nama" />
+                       <TableColumn maxWidth="3000.0" prefWidth="105.0" text="Jenis Kelamin" />
+                       <TableColumn prefWidth="155.0" text="Tanggal lahir" />
+                       <TableColumn prefWidth="108.0" text="Action" />
+                    </columns>
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>

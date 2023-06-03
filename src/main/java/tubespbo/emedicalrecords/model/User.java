@@ -1,9 +1,13 @@
 package tubespbo.emedicalrecords.model;
 
-public abstract class User   {
+public class User   {
     protected int adminPermission;
     protected String username;
     protected String password;
+
     protected String name;
 
+    public User () {
+
+    }
 }
