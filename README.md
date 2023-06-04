@@ -7,7 +7,6 @@
 * [ ] final product 
 * [ ] final presentation
 
-dari yang disampaikan oleh dokter Slamet Suswatoro:
 # proses lembar konsultasi dalam aplikasi web e-MRs
 
 terdapat beberapa bagian yang dipecah berdasarkan tiap halaman yang dilalui oleh dokter atau asisten dokter ketika mengerjakan assessment lembar konsultasi, dan melihat sejarah lembar konsultasi, dari bagian tersebut dimulai dari:
