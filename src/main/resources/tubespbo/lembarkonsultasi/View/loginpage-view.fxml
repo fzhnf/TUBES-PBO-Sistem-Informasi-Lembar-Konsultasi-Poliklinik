@@ -11,13 +11,13 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="750.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="750.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tubespbo.lembarkonsultasi.Controller.LoginpageController">
     <left>
         <AnchorPane prefHeight="200.0" prefWidth="250.0" BorderPane.alignment="CENTER">
             <children>
                 <ImageView fitHeight="166.0" fitWidth="245.0" layoutX="6.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true" style="-fx-blend-mode: #1790d0;">
                     <image>
-                        <Image url="@../../../../../../eMedicalRecords/src/main/resources/tubespbo/emedicalrecords/electronic-health-record.png" />
+                        <Image url="@../electronic-health-record.png" />
                     </image></ImageView>
                 <Label layoutX="93.0" layoutY="200.0" prefHeight="41.0" prefWidth="72.0" text="EMR's" textFill="#1481bb">
                     <font>
@@ -42,7 +42,7 @@
                 </Label>
                 <ImageView fitHeight="49.0" fitWidth="56.0" layoutX="225.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../../../../../../eMedicalRecords/src/main/resources/tubespbo/emedicalrecords/encryption-icon-11.png" />
+                        <Image url="@../encryption-icon-11.png" />
                     </image>
                 </ImageView>
                 <Label layoutX="103.0" layoutY="174.0" prefHeight="22.0" prefWidth="72.0" text="Password" textFill="WHITE">
@@ -52,7 +52,7 @@
                 </Label>
                 <TextField fx:id="usernameInput" layoutX="198.0" layoutY="130.0" prefHeight="25.0" prefWidth="184.0" promptText="Username" />
                 <PasswordField fx:id="passwordInput" layoutX="198.0" layoutY="172.0" prefHeight="25.0" prefWidth="184.0" promptText="Password" />
-                <Button fx:id="loginButton" layoutX="198.0" layoutY="237.0" mnemonicParsing="false" onAction="#loginButtonOnAction" prefHeight="24.0" prefWidth="109.0" text="Login">
+                <Button fx:id="loginButton" layoutX="198.0" layoutY="237.0" mnemonicParsing="false" onAction="#login" prefHeight="24.0" prefWidth="109.0" text="Login">
                     <font>
                         <Font name="Hack Bold" size="14.0" />
                     </font>

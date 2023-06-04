@@ -1,4 +1,4 @@
-package tubespbo.lembarkonsultasi;
+package tubespbo.lembarkonsultasi.Controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,7 +14,10 @@ public class AdminpageController {
     private Button changeSceneToLembarKonsultasiButton;
 
     @FXML
-    private Button changeScenetoAdministrasiPenggunaButton;
+    private Button changeScenetoAddNewPatientButton;
+
+    @FXML
+    private Button changeScenetoAdministrasiDokterButton;
 
     @FXML
     private TableColumn<?, ?> listBooleanSelesai;
@@ -31,8 +34,7 @@ public class AdminpageController {
     @FXML
     private Button logoutButton;
 
-    @FXML
-    private Button openNewAssesmenWindowButton;
+
 
     @FXML
     void changeSceneToLembarKonsultasi(ActionEvent event) {
@@ -40,17 +42,17 @@ public class AdminpageController {
     }
 
     @FXML
-    void changeScenetoAdministrasiPengguna(ActionEvent event) {
+    void changeScenetoAddNewPatient(ActionEvent event) {
+
+    }
+
+    @FXML
+    void changeScenetoAdministrasiDokter(ActionEvent event) {
 
     }
 
     @FXML
     void logout(ActionEvent event) {
-
-    }
-
-    @FXML
-    void openNewAssesmenWindow(ActionEvent event) {
 
     }
 

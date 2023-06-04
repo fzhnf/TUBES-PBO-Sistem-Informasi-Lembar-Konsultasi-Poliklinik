@@ -12,11 +12,11 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tubespbo.lembarkonsultasi.AdminpageController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tubespbo.lembarkonsultasi.Controller.ConsultationHistoryPageController">
    <left>
       <AnchorPane prefHeight="600.0" prefWidth="150.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="changeSceneToLembarKonsultasiButton" layoutX="15.0" layoutY="173.0" mnemonicParsing="false" onAction="#changeSceneToLembarKonsultasi" prefHeight="27.0" prefWidth="121.0" text="administrasi Lembar Konsultasi" textFill="#1481bb">
+            <Button fx:id="changeSceneToLembarKonsultasiButton" layoutX="15.0" layoutY="173.0" mnemonicParsing="false" onAction="#changeSceneToLembarKonsultasi" prefHeight="27.0" prefWidth="121.0" text="Assesmen" textFill="#1481bb">
                <font>
                   <Font size="13.0" />
                </font>
@@ -24,7 +24,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="changeScenetoAdministrasiPenggunaButton" layoutX="15.0" layoutY="207.0" mnemonicParsing="false" onAction="#changeScenetoAdministrasiPengguna" prefHeight="27.0" prefWidth="121.0" text="administrasi pengguna" textFill="#1481bb">
+            <Button fx:id="changeSceneTindakLanjutButton" layoutX="15.0" layoutY="207.0" mnemonicParsing="false" onAction="#changeSceneTindakLanjut" prefHeight="27.0" prefWidth="121.0" text="lembar konsultasi" textFill="#1481bb">
                <font>
                   <Font size="13.0" />
                </font>
@@ -61,22 +61,22 @@
    <right>
       <AnchorPane prefHeight="400.0" prefWidth="650.0" BorderPane.alignment="CENTER">
          <children>
-            <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0">
-               <items>
-                  <Button fx:id="openNewAssesmenWindowButton" mnemonicParsing="false" onAction="#openNewAssesmenWindow" text="Add" />
+            <SplitPane orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0">
+              <items>
                   <TableView prefHeight="200.0" prefWidth="600.0">
                      <columns>
-                        <TableColumn fx:id="listNomorTabelAssesmen" maxWidth="141.0" prefWidth="11.0" text="No" />
-                        <TableColumn fx:id="listTglAssesmenTabelAssesmen" maxWidth="300.0" minWidth="0.0" prefWidth="128.0" text="Tanggal Assessment" />
-                        <TableColumn fx:id="ListActionAssesmen" maxWidth="395.0" prefWidth="131.0" text="Action" />
-                        <TableColumn fx:id="listKlinik" maxWidth="374.0" prefWidth="89.0" text="Klinik" />
-                        <TableColumn fx:id="listBooleanSelesai" maxWidth="363.0" prefWidth="361.0" text="Selesai" />
+                        <TableColumn fx:id="listNomorTabelAssesmenLama" maxWidth="33.0" prefWidth="32.0" resizable="false" text="No" />
+                        <TableColumn fx:id="listTglAssesmentTabelAssesmenLama" prefWidth="155.0" text="Tanggal Assessment" />
+                        <TableColumn fx:id="listNamaTabelAssesmenLama" prefWidth="109.0" text="Nama" />
+                        <TableColumn fx:id="listJenisKelaminTabelAssesmenLama" maxWidth="3000.0" prefWidth="105.0" text="Jenis Kelamin" />
+                        <TableColumn fx:id="listTglLahirTabelAssesmenLama" prefWidth="155.0" text="Tanggal lahir" />
+                        <TableColumn fx:id="ListActionAssesmenLama" prefWidth="108.0" text="Action" />
                      </columns>
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
                   </TableView>
-               </items>
+              </items>
             </SplitPane>
          </children>
       </AnchorPane>

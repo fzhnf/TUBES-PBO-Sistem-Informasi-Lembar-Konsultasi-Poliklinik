@@ -1,14 +1,11 @@
-package tubespbo.lembarkonsultasi;
+package tubespbo.lembarkonsultasi.Controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 
-public class HomepageController {
-
-    @FXML
-    private TableColumn<?, ?> ListActionAssesmenBaru;
+public class ConsultationHistoryPageController {
 
     @FXML
     private TableColumn<?, ?> ListActionAssesmenLama;
@@ -20,31 +17,16 @@ public class HomepageController {
     private Button changeSceneToLembarKonsultasiButton;
 
     @FXML
-    private TableColumn<?, ?> listJenisKelaminTabelAssesmenBaru;
-
-    @FXML
     private TableColumn<?, ?> listJenisKelaminTabelAssesmenLama;
-
-    @FXML
-    private TableColumn<?, ?> listNamaTabelAssesmenBaru;
 
     @FXML
     private TableColumn<?, ?> listNamaTabelAssesmenLama;
 
     @FXML
-    private TableColumn<?, ?> listNomorTabelAssesmenBaru;
-
-    @FXML
     private TableColumn<?, ?> listNomorTabelAssesmenLama;
 
     @FXML
-    private TableColumn<?, ?> listTglAssesmentTabelAssesmenBaru;
-
-    @FXML
     private TableColumn<?, ?> listTglAssesmentTabelAssesmenLama;
-
-    @FXML
-    private TableColumn<?, ?> listTglLahirTabelAssesmenBaru;
 
     @FXML
     private TableColumn<?, ?> listTglLahirTabelAssesmenLama;

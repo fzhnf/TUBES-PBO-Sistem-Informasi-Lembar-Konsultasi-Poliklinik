@@ -1,4 +1,4 @@
-package tubespbo.lembarkonsultasi;
+package tubespbo.lembarkonsultasi.Controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
