@@ -5,35 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="58da0ca9-24b1-4295-95ef-659d4fc6f181" name="Changes" comment="a">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tubespbo/lembarkonsultasi/Controller/ConsultationHistoryPageController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tubespbo/lembarkonsultasi/Controller/LoginpageController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tubespbo/lembarkonsultasi/Controller/NewUserDoctorController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tubespbo/lembarkonsultasi/Model/ConsultationSheetModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tubespbo/lembarkonsultasi/Model/DAOModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tubespbo/lembarkonsultasi/Model/PatientModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tubespbo/lembarkonsultasi/Model/UserAdminModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tubespbo/lembarkonsultasi/Model/UserDoctorModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tubespbo/lembarkonsultasi/Model/UserModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tubespbo/lembarkonsultasi/Util/DBUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tubespbo/lembarkonsultasi/View/consultationhistorypage-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tubespbo/lembarkonsultasi/View/newuserdoctor-window.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a2b4fee1-306e-4c22-9241-5e85e9d6fde0.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tubespbo/lembarkonsultasi/AdminpageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tubespbo/lembarkonsultasi/Controller/AdminpageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tubespbo/lembarkonsultasi/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tubespbo/lembarkonsultasi/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tubespbo/lembarkonsultasi/HomepageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tubespbo/lembarkonsultasi/Controller/HomepageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tubespbo/lembarkonsultasi/LoginpageController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tubespbo/lembarkonsultasi/NewAssesmentWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tubespbo/lembarkonsultasi/Controller/NewAssesmentWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/tubespbo/lembarkonsultasi/adminpage-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tubespbo/lembarkonsultasi/View/adminpage-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/tubespbo/lembarkonsultasi/homepage-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tubespbo/lembarkonsultasi/View/homepage-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/tubespbo/lembarkonsultasi/loginpage-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tubespbo/lembarkonsultasi/View/loginpage-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/tubespbo/lembarkonsultasi/newassesment-window.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tubespbo/lembarkonsultasi/View/newassesment-window.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/tubespbo/lembarkonsultasi/tindaklanjut-view.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tubespbo/lembarkonsultasi/Controller/LoginpageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tubespbo/lembarkonsultasi/Controller/LoginpageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tubespbo/lembarkonsultasi/Model/ConsultationSheetModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tubespbo/lembarkonsultasi/Model/ConsultationSheetModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/tubespbo/lembarkonsultasi/View/adminpage-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tubespbo/lembarkonsultasi/View/adminpage-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/tubespbo/lembarkonsultasi/View/consultationhistorypage-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tubespbo/lembarkonsultasi/View/consultationhistorypage-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/tubespbo/lembarkonsultasi/View/homepage-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tubespbo/lembarkonsultasi/View/homepage-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,29 +48,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "staging",
-    "last_opened_file_path": "C:/Users/faiza/codefiles/lembarKonsultasi/src/main/java/tubespbo/lembarkonsultasi",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;staging&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/faiza/codefiles/lembarKonsultasi/src/main/java/tubespbo/lembarkonsultasi&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\faiza\codefiles\lembarKonsultasi\src\main\java\tubespbo\lembarkonsultasi" />
@@ -119,6 +98,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />

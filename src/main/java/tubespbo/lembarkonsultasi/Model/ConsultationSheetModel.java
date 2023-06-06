@@ -123,5 +123,8 @@ public class ConsultationSheetModel {
                 ", diagnosisScript='" + diagnosisScript + '\'' +
                 ", patientEducation='" + patientEducation + '\'' +
                 '}';
+
+
+
     }
 }

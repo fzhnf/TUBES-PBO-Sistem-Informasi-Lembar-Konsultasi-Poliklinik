@@ -36,13 +36,13 @@ public class LoginpageController {
         String password = passwordInput.getText();
         UserModel user = new UserModel(username, password);
         boolean authentication = user.validateLogin();
-        if (authentication) {
+        //if (authentication) {
             if (user.getUsername().equals("faiz")) {
                 loginMessageLabel.setText("welcome to admin page");
             } else  {
                 loginMessageLabel.setText("welcome to doctor page");
             }
-        }
+        //}
 //        UserModel user = new UserModel(username, password);
 //        boolean authentication = user.validateLogin();
 //
