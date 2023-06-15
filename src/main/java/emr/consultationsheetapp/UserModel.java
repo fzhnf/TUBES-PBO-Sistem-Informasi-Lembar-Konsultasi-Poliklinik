@@ -1,4 +1,4 @@
-package tubespbo.lembarkonsultasi.Model;
+package emr.consultationsheetapp;
 
 public class UserModel {
     protected String username;
@@ -10,6 +10,7 @@ public class UserModel {
         this.username = username;
         this.password = password;
     }
+
     public UserModel() {
     }
 

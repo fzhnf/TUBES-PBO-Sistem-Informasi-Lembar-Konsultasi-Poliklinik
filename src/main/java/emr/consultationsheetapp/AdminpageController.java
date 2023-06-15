@@ -1,4 +1,4 @@
-package tubespbo.lembarkonsultasi.Controller;
+package emr.consultationsheetapp;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

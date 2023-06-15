@@ -1,4 +1,4 @@
-package tubespbo.lembarkonsultasi.Model;
+package emr.consultationsheetapp;
 
 public class UserAdminModel extends UserModel {
 

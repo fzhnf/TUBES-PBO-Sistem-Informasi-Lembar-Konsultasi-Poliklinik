@@ -1,4 +1,4 @@
-package tubespbo.lembarkonsultasi.Model;
+package emr.consultationsheetapp;
 
 public class UserDoctorModel extends UserModel {
     private int userId;
@@ -15,7 +15,4 @@ public class UserDoctorModel extends UserModel {
         this.userId = userId;
     }
 
-    public UserDoctorModel(int clinic) {
-        this.clinic = clinic;
-    }
 }

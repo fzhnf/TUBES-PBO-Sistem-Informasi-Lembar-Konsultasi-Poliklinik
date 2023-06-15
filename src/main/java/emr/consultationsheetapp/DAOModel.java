@@ -1,6 +1,6 @@
-package tubespbo.lembarkonsultasi.Model;
+package emr.consultationsheetapp;
 
-import tubespbo.lembarkonsultasi.Util.DBUtil;
+import emr.consultationsheetapp.DBUtil;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

@@ -1,4 +1,4 @@
-package tubespbo.lembarkonsultasi;
+package emr.consultationsheetapp;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -10,9 +10,9 @@ import java.io.IOException;
 public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("View/loginpage-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("loginpage-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("eMedicalRecord");
+        stage.setTitle("e-MedicalRecords");
         stage.setScene(scene);
         stage.show();
     }

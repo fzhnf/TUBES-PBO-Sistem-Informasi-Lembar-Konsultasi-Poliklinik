@@ -1,4 +1,4 @@
-package tubespbo.lembarkonsultasi.Util;
+package emr.consultationsheetapp;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
