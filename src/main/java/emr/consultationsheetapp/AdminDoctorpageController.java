@@ -5,22 +5,19 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 
-public class AdminpageController {
+public class AdminDoctorpageController {
 
     @FXML
     private TableColumn<?, ?> ListActionAssesmen;
 
     @FXML
-    private Button changeSceneToLembarKonsultasiButton;
+    private Button addDoctorButton;
 
     @FXML
     private Button changeScenetoAddNewPatientButton;
 
     @FXML
     private Button changeScenetoAdministrasiDokterButton;
-
-    @FXML
-    private TableColumn<?, ?> listBooleanSelesai;
 
     @FXML
     private TableColumn<?, ?> listKlinik;
@@ -34,10 +31,11 @@ public class AdminpageController {
     @FXML
     private Button logoutButton;
 
-
+    @FXML
+    private Button refreshButton;
 
     @FXML
-    void changeSceneToLembarKonsultasi(ActionEvent event) {
+    void addDoctor(ActionEvent event) {
 
     }
 
@@ -53,6 +51,11 @@ public class AdminpageController {
 
     @FXML
     void logout(ActionEvent event) {
+
+    }
+
+    @FXML
+    void refresh(ActionEvent event) {
 
     }
 
