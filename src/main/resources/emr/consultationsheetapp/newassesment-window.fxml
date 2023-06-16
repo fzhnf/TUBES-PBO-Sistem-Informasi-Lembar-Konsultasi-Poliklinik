@@ -7,21 +7,32 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="279.0" prefWidth="398.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tubespbo.lembarkonsultasi.NewAssesmentWindowController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="279.0" prefWidth="398.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tubespbo.lembarkonsultasi.Controller.NewAssesmentWindowController">
    <center>
-      <AnchorPane prefHeight="310.0" prefWidth="458.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="259.0" prefWidth="409.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="InputTextName" layoutX="189.0" layoutY="49.0" />
-            <TextField fx:id="InputTextGender" layoutX="190.0" layoutY="89.0" />
-            <TextField fx:id="InputBirthDate" layoutX="190.0" layoutY="146.0" />
-            <Label layoutX="51.0" layoutY="55.0" text="Nama Pasien" />
-            <Label layoutX="46.0" layoutY="98.0" text="Jenis Kelamin Pasien" />
-            <Label layoutX="48.0" layoutY="154.0" text="Tgl. lahir Pasien" />
-            <Label layoutX="55.0" layoutY="204.0" text="Klinik" />
-            <Button fx:id="AddNewAssesmentButton" layoutX="287.0" layoutY="198.0" mnemonicParsing="false" onAction="#AddNewAssesment" text="Add" />
-            <ComboBox fx:id="clinicOption" layoutX="124.0" layoutY="200.0" prefWidth="150.0" />
+            <TextField fx:id="InputTextName" layoutX="183.0" layoutY="50.0" />
+            <TextField fx:id="InputTextGender" layoutX="183.0" layoutY="90.0" />
+            <TextField fx:id="InputBirthDate" layoutX="183.0" layoutY="130.0" />
+            <Label layoutX="46.0" layoutY="54.0" text="Nama Pasien" />
+            <Label layoutX="46.0" layoutY="94.0" text="Jenis Kelamin Pasien" />
+            <Label layoutX="46.0" layoutY="134.0" text="Tgl. lahir Pasien" />
+            <Label layoutX="46.0" layoutY="180.0" text="Klinik" />
+            <Button fx:id="AddNewAssesmentButton" layoutX="277.0" layoutY="176.0" mnemonicParsing="false" onAction="#AddNewAssesment" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: #a7def2; -fx-background-radius: 100;" text="Add" />
+            <ComboBox fx:id="clinicOption" layoutX="114.0" layoutY="176.0" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: #a7def2;" />
          </children>
       </AnchorPane>
    </center>
+   <top>
+      <AnchorPane prefHeight="15.0" prefWidth="398.0" style="-fx-background-color: #1481bb;" BorderPane.alignment="CENTER" />
+   </top>
+   <left>
+      <AnchorPane prefHeight="254.0" prefWidth="15.0" style="-fx-background-color: #1481bb;" BorderPane.alignment="CENTER" />
+   </left>
+   <right>
+      <AnchorPane prefHeight="264.0" prefWidth="0.0" BorderPane.alignment="CENTER" />
+   </right>
+   <bottom>
+      <AnchorPane prefHeight="0.0" prefWidth="398.0" BorderPane.alignment="CENTER" />
+   </bottom>
 </BorderPane>
