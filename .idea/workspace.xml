@@ -4,50 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a9f3f619-434b-4c4d-a0e7-20878668c352" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/emr/consultationsheetapp/AdminpageController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/emr/consultationsheetapp/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/emr/consultationsheetapp/ConsultationHistoryPageController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/emr/consultationsheetapp/ConsultationSheetModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/emr/consultationsheetapp/DAOModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/emr/consultationsheetapp/DBUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/emr/consultationsheetapp/HomepageController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/emr/consultationsheetapp/LoginpageController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/emr/consultationsheetapp/NewAssesmentWindowController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/emr/consultationsheetapp/NewUserDoctorController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/emr/consultationsheetapp/PatientModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/emr/consultationsheetapp/UserAdminModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/emr/consultationsheetapp/UserDoctorModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/emr/consultationsheetapp/UserModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/emr/consultationsheetapp/adminpage-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/emr/consultationsheetapp/consultationhistorypage-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/emr/consultationsheetapp/electronic-health-record.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/emr/consultationsheetapp/encryption-icon-11.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/emr/consultationsheetapp/homepage-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/emr/consultationsheetapp/loginpage-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/emr/consultationsheetapp/newassesment-window.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/emr/consultationsheetapp/newuserdoctor-window.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="4e96d9ce-ae92-4d07-aa9b-d9a801c16478" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -57,23 +18,26 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectId" id="2RBSevIsFlrmZbLW8QHyHPdmOq4" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="2RBQHhzgkW5aKX329swV7OkNqCB" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/RAFI/IdeaProjects/consultationSheetApp/src/main/java/emr/consultationsheetapp",
+    "ignore.virus.scanning.warn.message": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -83,26 +47,25 @@
   }
 }]]></component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\RAFI\IdeaProjects\consultationSheetApp\src\main\java\emr\consultationsheetapp" />
-      <recent name="C:\Users\RAFI\IdeaProjects\consultationSheetApp\src\main\resources\emr\consultationsheetapp\View" />
-      <recent name="C:\Users\RAFI\IdeaProjects\consultationSheetApp\src\main\resources\emr\consultationsheetapp" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\RAFI\IdeaProjects\consultationSheetApp\src\main\resources\emr\consultationsheetapp" />
-      <recent name="C:\Users\RAFI\IdeaProjects\consultationSheetApp\src\main\resources\emr\consultationsheetapp\View" />
-      <recent name="C:\Users\RAFI\IdeaProjects\consultationSheetApp\src\main\resources" />
+      <recent name="C:\Users\faiza\codefiles\consultationSheetApp\src\main\resources\emr\consultationsheetapp" />
+      <recent name="C:\Users\faiza\codefiles\consultationSheetApp\src\main\java\emr\consultationsheetapp" />
+      <recent name="C:\Users\faiza\codefiles\consultationSheetApp\src\main\resources" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="a9f3f619-434b-4c4d-a0e7-20878668c352" name="Changes" comment="" />
-      <created>1686722086748</created>
+      <changelist id="4e96d9ce-ae92-4d07-aa9b-d9a801c16478" name="Changes" comment="" />
+      <created>1686720909633</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1686722086748</updated>
-      <workItem from="1686722087889" duration="7759000" />
+      <updated>1686720909633</updated>
+      <workItem from="1686720910685" duration="2678000" />
+      <workItem from="1686788650134" duration="4726000" />
+      <workItem from="1686912266781" duration="1296000" />
+      <workItem from="1686934211647" duration="813000" />
+      <workItem from="1686955618601" duration="6464000" />
     </task>
     <servers />
   </component>

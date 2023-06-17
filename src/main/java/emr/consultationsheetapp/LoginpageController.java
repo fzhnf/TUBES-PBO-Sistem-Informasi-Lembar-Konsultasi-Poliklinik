@@ -6,19 +6,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-
-import emr.consultationsheetapp.UserAdminModel;
-import emr.consultationsheetapp.UserDoctorModel;
-import emr.consultationsheetapp.UserModel;
+import java.io.IOException;
 
 public class LoginpageController {
-
-    @FXML
-    private Label Username;
-
-    @FXML
-    private Button loginButton;
-
     @FXML
     private Label loginMessageLabel;
 
@@ -30,17 +20,17 @@ public class LoginpageController {
 
 
     @FXML
-    void login(ActionEvent event) {
+    void login(ActionEvent event) throws IOException {
         String username = usernameInput.getText();
         String password = passwordInput.getText();
-        UserModel user = new UserModel(username, password);
-        boolean authentication = user.validateLogin();
-        if (authentication) {
-            if (user.getUsername().equals("faiz")) {
-                loginMessageLabel.setText("welcome to admin page");
-            } else  {
-                loginMessageLabel.setText("welcome to doctor page");
-            }
+        UserDAO user = new UserDAO(username, password);
+        int userId = user.getUserId();
+        if (userId == -1) {
+            loginMessageLabel.setText("Invalid Login, Please try again!");
+        } else if ( userId == 0) {
+            loginMessageLabel.setText("welcome to admin page");
+        } else {
+            loginMessageLabel.setText(String.valueOf(userId));
         }
     }
 }

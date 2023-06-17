@@ -1,16 +1,12 @@
 package emr.consultationsheetapp;
 
-public class UserModel {
+public abstract class UserModel {
     protected String username;
     protected String password;
-
-    DAOModel dao = new DAOModel();
-
     public UserModel(String username, String password) {
         this.username = username;
         this.password = password;
     }
-
     public UserModel() {
     }
 
@@ -38,14 +34,4 @@ public class UserModel {
                 ", password='" + password +
                 '}';
     }
-
-    public boolean validateLogin() {
-        return dao.getUsername(username) != null && dao.getPassword(password) != null;
-    }
-
-    public int checkClinic() {
-        int id = dao.getUserIdByName(username);
-        return dao.getClinicById(id);
-    }
 }
-
