@@ -37,12 +37,20 @@ public class LoginpageController {
         } else if ( userId == 0) {
             openAdminPage();
         } else {
-            loginMessageLabel.setText(String.valueOf(userId));
+            openDoctorPage();
         }
     }
 
     private void openAdminPage() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("adminpatientpage-view.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) loginButton.getScene().getWindow();
+        stage.setScene(scene);
+    }
+
+    private void openDoctorPage() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("doctorasesmentpage-view.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
         Stage stage = (Stage) loginButton.getScene().getWindow();

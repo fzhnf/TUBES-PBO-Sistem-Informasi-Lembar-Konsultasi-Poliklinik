@@ -9,7 +9,7 @@ public class DBUtil {
     
     public Connection getConnection() {
         String databaseUser = "root";
-        String databasePassword = "";
+        String databasePassword = "rafi1234";
         String url = "jdbc:mysql://localhost:3306/emrsdb";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");

@@ -46,7 +46,7 @@
                   <Image url="@electronic-health-record.png" />
                </image>
             </ImageView>
-            <Button fx:id="changeScenetoAdministrasiDokterButton" layoutX="14.0" layoutY="200.0" mnemonicParsing="false" onAction="#changeScenetoAdministrasiDokter" prefHeight="27.0" prefWidth="123.0" style="-fx-background-color: #a7def2; -fx-background-radius: 100;" text="Dokter" textFill="#1481bb">
+            <Button fx:id="changeScenetoAdministrasiDokterButton" layoutX="14.0" layoutY="200.0" mnemonicParsing="false" onAction="#changeScenetoAddNewPatient" prefHeight="27.0" prefWidth="123.0" style="-fx-background-color: #a7def2; -fx-background-radius: 100;" text="Dokter" textFill="#1481bb">
                <font>
                   <Font size="13.0" />
                </font>
