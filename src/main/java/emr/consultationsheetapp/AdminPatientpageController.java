@@ -10,10 +10,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
+import javafx.scene.layout.HBox;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
@@ -22,11 +22,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class AdminPatientpageController implements Initializable {
-    @FXML
-    private TableColumn<PatientDAO, String> ListActionAssesmen;
 
     @FXML
     private Button addPatientButton;
@@ -38,28 +37,30 @@ public class AdminPatientpageController implements Initializable {
     private Button changeScenetoAdministrasiDokterButton;
 
     @FXML
-    private TableColumn<PatientDAO, Integer> listBooleanSelesai;
-
-    @FXML
-    private TableColumn<PatientDAO, Integer> listGender;
-
-    @FXML
-    private TableColumn<PatientDAO, Integer> listKlinik;
-
-    @FXML
-    private TableColumn<PatientDAO, String> listNamaPasien;
+    private TableView<PatientDAO> patientTable;
 
     @FXML
     private TableColumn<PatientDAO, Integer> listNomorTabelAssesmen;
 
     @FXML
+    private TableColumn<PatientDAO, String> listNamaPasien;
+
+    @FXML
     private TableColumn<PatientDAO, Date> listTglLahir;
+
+    @FXML
+    private TableColumn<PatientDAO, Integer> listKlinik;
+
+    @FXML
+    private TableColumn<PatientDAO, Integer> listGender;
+
+    @FXML
+    private TableColumn<PatientDAO, Void> ListActionAssesmen;
+
 
     @FXML
     private Button logoutButton;
 
-    @FXML
-    private TableView<PatientDAO> patientTable;
 
     @FXML
     private Button refreshButton;
@@ -141,7 +142,77 @@ public class AdminPatientpageController implements Initializable {
         listNamaPasien.setCellValueFactory(new PropertyValueFactory<>("patientName"));
         listTglLahir.setCellValueFactory(new PropertyValueFactory<>("patientBirthdate"));
         listKlinik.setCellValueFactory(new PropertyValueFactory<>("clinic"));
-        listBooleanSelesai.setCellValueFactory(new PropertyValueFactory<>("diagnoseStatus"));
         listGender.setCellValueFactory(new PropertyValueFactory<>("patientGender"));
+
+        ListActionAssesmen.setCellFactory(column -> {
+            return new TableCell<>() {
+                private final Button editButton = new Button("Edit");
+                private final Button deleteButton = new Button("Delete");
+
+                {
+                    editButton.setOnAction(event -> {
+                        PatientDAO patient = getTableView().getItems().get(getIndex());
+                        openEditWindow(patient);
+                    });
+
+                    deleteButton.setOnAction(event -> {
+                        PatientDAO patient = getTableView().getItems().get(getIndex());
+                        showDeleteConfirmation(patient);
+                    });
+                }
+
+                @Override
+                protected void updateItem(Void item, boolean empty) {
+                    super.updateItem(item, empty);
+
+                    if (empty || getIndex() < 0) {
+                        setGraphic(null);
+                    } else {
+                        HBox buttonsContainer = new HBox(10);
+                        buttonsContainer.getChildren().addAll(editButton, deleteButton);
+                        setGraphic(buttonsContainer);
+                    }
+                }
+
+                private void openEditWindow(PatientDAO patient) {
+                    try {
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("newassesment-window.fxml"));
+                        Parent root = loader.load();
+                        // editController.setPatient(patient);
+
+                        Stage stage = new Stage();
+                        stage.setScene(new Scene(root));
+                        stage.setTitle("Edit Patient");
+                        stage.initModality(Modality.APPLICATION_MODAL);
+                        stage.showAndWait();
+
+                        // Refresh the table after editing
+                        refresh(null);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                private void showDeleteConfirmation(PatientDAO patient) {
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setTitle("Delete Patient");
+                    alert.setHeaderText("Confirm Deletion");
+                    alert.setContentText("Are you sure you want to delete this patient?");
+
+                    Optional<ButtonType> result = alert.showAndWait();
+                    if (result.isPresent() && result.get() == ButtonType.OK) {
+                        patient.deletePatient();
+                        refresh(null);
+                    }
+                }
+            };
+        });
+
+
+
+
+
+
+
     }
 }

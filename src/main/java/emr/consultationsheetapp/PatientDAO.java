@@ -189,4 +189,19 @@ public class PatientDAO extends PatientModel {
         }
     }
 
+    public PatientDAO getPatient() {
+        try (Connection connectDB = database.getConnection()) {
+            String query = "SELECT * FROM patient_table WHERE patient_id = '" + patientId + "'";
+            Statement statement = connectDB.createStatement();
+            ResultSet queryResult = statement.executeQuery(query);
+            PatientDAO patient = null;
+            while (queryResult.next()) {
+                patient = new PatientDAO(queryResult.getString("patient_name"), queryResult.getInt("patient_gender"), queryResult.getDate("patient_birthdate"), queryResult.getInt("clinic"), queryResult.getInt("diagnose"));
+                System.out.println(patient);
+            }
+            return patient;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
