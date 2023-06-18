@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
@@ -47,8 +48,14 @@ public class AdminDoctorpageController {
     }
 
     @FXML
-    void addDoctor(ActionEvent event) {
-
+    void addDoctor(ActionEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource("newuserdoctor-window.fxml"));
+        Scene scene = new Scene(parent);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.setTitle("e-ConsultationSheet");
+        stage.initStyle(StageStyle.UTILITY);
+        stage.show();
     }
 
     @FXML
@@ -58,6 +65,7 @@ public class AdminDoctorpageController {
         Scene scene = new Scene(root);
         Stage stage = (Stage) changeScenetoAddNewPatientButton.getScene().getWindow();
         stage.setScene(scene);
+        stage.setTitle("e-ConsultationSheet");
     }
 
     //@FXML
@@ -66,8 +74,13 @@ public class AdminDoctorpageController {
     //}
 
     @FXML
-    void logout(ActionEvent event) {
-
+    void logout(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("loginpage-view.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) logoutButton.getScene().getWindow();
+        stage.setScene(scene);
+        stage.setTitle("e-ConsultationSheet");
     }
 
 }

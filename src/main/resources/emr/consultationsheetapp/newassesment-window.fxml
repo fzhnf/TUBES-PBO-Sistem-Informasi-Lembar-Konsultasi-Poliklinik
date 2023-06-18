@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -7,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="279.0" prefWidth="398.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tubespbo.lembarkonsultasi.Controller.NewAssesmentWindowController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="279.0" prefWidth="398.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="emr.consultationsheetapp.AdminPatientpageController">
    <center>
       <AnchorPane prefHeight="259.0" prefWidth="409.0" BorderPane.alignment="CENTER">
          <children>
@@ -18,7 +19,7 @@
             <Label layoutX="46.0" layoutY="94.0" text="Jenis Kelamin Pasien" />
             <Label layoutX="46.0" layoutY="134.0" text="Tgl. lahir Pasien" />
             <Label layoutX="46.0" layoutY="180.0" text="Klinik" />
-            <Button fx:id="AddNewAssesmentButton" layoutX="277.0" layoutY="176.0" mnemonicParsing="false" onAction="#AddNewAssesment" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: #a7def2; -fx-background-radius: 100;" text="Add" />
+            <Button fx:id="AddNewAssesmentButton" layoutX="277.0" layoutY="176.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: #a7def2; -fx-background-radius: 100;" text="Add" />
             <ComboBox fx:id="clinicOption" layoutX="114.0" layoutY="176.0" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: #a7def2;" />
          </children>
       </AnchorPane>
@@ -35,4 +36,7 @@
    <bottom>
       <AnchorPane prefHeight="0.0" prefWidth="398.0" BorderPane.alignment="CENTER" />
    </bottom>
+   <cursor>
+      <Cursor fx:constant="HAND" />
+   </cursor>
 </BorderPane>

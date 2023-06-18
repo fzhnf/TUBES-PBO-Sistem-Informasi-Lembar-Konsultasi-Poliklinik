@@ -75,7 +75,10 @@
          <top>
             <AnchorPane prefHeight="35.0" prefWidth="599.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="addDoctorButton" layoutX="62.0" layoutY="5.0" mnemonicParsing="false" onAction="#addDoctor" style="-fx-background-color: #a7def2; -fx-background-radius: 100;" text="AddDoctor" />
+                  <Button fx:id="addDoctorButton" layoutX="62.0" layoutY="5.0" mnemonicParsing="false" onAction="#addDoctor" style="-fx-background-color: #a7def2; -fx-background-radius: 100;" text="AddDoctor">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
                   <Button fx:id="refreshButton" layoutY="5.0" mnemonicParsing="false" onAction="#refresh" style="-fx-background-color: #a7def2; -fx-background-radius: 100;" text="Refresh" />
                </children></AnchorPane>
          </top>

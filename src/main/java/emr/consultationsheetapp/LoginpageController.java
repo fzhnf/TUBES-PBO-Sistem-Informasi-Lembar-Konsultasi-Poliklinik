@@ -46,6 +46,7 @@ public class LoginpageController {
         Parent root = loader.load();
         Scene scene = new Scene(root);
         Stage stage = (Stage) loginButton.getScene().getWindow();
+        stage.setTitle("e-ConsultationSheet");
         stage.setScene(scene);
     }
 
@@ -54,6 +55,7 @@ public class LoginpageController {
         Parent root = loader.load();
         Scene scene = new Scene(root);
         Stage stage = (Stage) loginButton.getScene().getWindow();
+        stage.setTitle("e-ConsultationSheet");
         stage.setScene(scene);
     }
 }

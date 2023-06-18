@@ -73,7 +73,10 @@
          <top>
             <AnchorPane prefHeight="35.0" prefWidth="599.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="addPatientButton" layoutX="62.0" layoutY="5.0" mnemonicParsing="false" onAction="#addPatient" style="-fx-background-color: #a7def2; -fx-background-radius: 100;" text="AddPasien" />
+                  <Button fx:id="addPatientButton" layoutX="62.0" layoutY="5.0" mnemonicParsing="false" onAction="#addPatient" style="-fx-background-color: #a7def2; -fx-background-radius: 100;" text="AddPasien">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
                   <Button fx:id="refreshButton" layoutY="5.0" mnemonicParsing="false" onAction="#refresh" style="-fx-background-color: #a7def2; -fx-background-radius: 100;" text="Refresh" />
                </children>
             </AnchorPane>
