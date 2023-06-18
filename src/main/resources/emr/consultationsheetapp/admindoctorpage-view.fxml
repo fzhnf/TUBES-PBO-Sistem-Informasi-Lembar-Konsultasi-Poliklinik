@@ -46,7 +46,7 @@
                   <Image url="@electronic-health-record.png" />
                </image>
             </ImageView>
-            <Button fx:id="changeScenetoAdministrasiDokterButton" layoutX="14.0" layoutY="200.0" mnemonicParsing="false" onAction="#changeScenetoAddNewPatient" prefHeight="27.0" prefWidth="123.0" style="-fx-background-color: #a7def2; -fx-background-radius: 100;" text="Dokter" textFill="#1481bb">
+            <Button fx:id="changeScenetoAdministrasiDokterButton" layoutX="14.0" layoutY="200.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="123.0" style="-fx-background-color: #a7def2; -fx-background-radius: 100;" text="Dokter" textFill="#1481bb">
                <font>
                   <Font size="13.0" />
                </font>
@@ -79,7 +79,10 @@
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor></Button>
-                  <Button fx:id="refreshButton" layoutY="5.0" mnemonicParsing="false" onAction="#refresh" style="-fx-background-color: #a7def2; -fx-background-radius: 100;" text="Refresh" />
+                  <Button fx:id="refreshButton" layoutY="5.0" mnemonicParsing="false" onAction="#refresh" style="-fx-background-color: #a7def2; -fx-background-radius: 100;" text="Refresh">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
                </children></AnchorPane>
          </top>
          <right>

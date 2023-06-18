@@ -1,5 +1,7 @@
 package emr.consultationsheetapp;
 
+import javafx.animation.FadeTransition;
+import javafx.animation.ParallelTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 
@@ -49,8 +52,21 @@ public class LoginpageController {
         Parent root = loader.load();
         Scene scene = new Scene(root);
         Stage stage = (Stage) loginButton.getScene().getWindow();
-        stage.setTitle("e-ConsultationSheet");
-        stage.setScene(scene);
+
+        FadeTransition fadeOut = new FadeTransition(Duration.seconds(0.5), stage.getScene().getRoot());
+        fadeOut.setFromValue(1.0);
+        fadeOut.setToValue(0.0);
+
+        FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.5), root);
+        fadeIn.setFromValue(0.0);
+        fadeIn.setToValue(1.0);
+
+        ParallelTransition transition = new ParallelTransition(fadeOut, fadeIn);
+        transition.setOnFinished(e -> {
+            stage.setScene(scene);
+            stage.setTitle("e-ConsultationSheet");
+        });
+        transition.play();
     }
 
     private void openDoctorPage() throws IOException {
