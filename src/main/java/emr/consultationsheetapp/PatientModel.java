@@ -2,14 +2,14 @@ package emr.consultationsheetapp;
 
 import java.util.Date;
 
-public class PatientModel {
-    private int patientId;
-    private String patientName;
-    private int patientGender;
-    private Date patientBirthdate;
+public abstract class PatientModel {
+    protected int patientId;
+    protected String patientName;
+    protected int patientGender;
+    protected Date patientBirthdate;
 
-    private int clinic;
-    private boolean diagnose;
+    protected int clinic;
+    protected boolean diagnose;
 
 
     public PatientModel(String patientName, int patientGender, Date patientBirthdate, int clinic, boolean diagnose) {
@@ -20,11 +20,7 @@ public class PatientModel {
         this.diagnose = diagnose;
     }
 
-    public PatientModel(String patientName, int patientGender, Date patientBirthdate, int clinic) {
-        this.patientName = patientName;
-        this.patientGender = patientGender;
-        this.patientBirthdate = patientBirthdate;
-        this.clinic = clinic;
+    public PatientModel() {
     }
 
     public int getPatientId() {

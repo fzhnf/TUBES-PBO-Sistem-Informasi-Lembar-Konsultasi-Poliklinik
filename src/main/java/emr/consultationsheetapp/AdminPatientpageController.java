@@ -2,20 +2,29 @@ package emr.consultationsheetapp;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.ParallelTransition;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.ResourceBundle;
 
-public class AdminPatientpageController {
+public class AdminPatientpageController implements Initializable {
 
 
     @FXML
@@ -25,22 +34,28 @@ public class AdminPatientpageController {
     private Button changeScenetoAdministrasiDokterButton;
 
     @FXML
-    private TableColumn<?, ?> listNomorTabelAssesmen;
+    private TableView<PatientDAO> patientTable;
 
     @FXML
-    private TableColumn<?, ?> listTglAssesmenTabelAssesmen;
+    private TableColumn<PatientDAO, Integer> listNomorTabelAssesmen;
 
     @FXML
-    private TableColumn<?, ?> listKlinik;
+    private TableColumn<PatientDAO, String> listNamaPasien;
 
     @FXML
-    private TableColumn<?, ?> listBooleanSelesai;
+    private TableColumn<PatientDAO, Date> listTglLahir;
 
     @FXML
-    private TableColumn<?, ?> ListActionAssesmen;
+    private TableColumn<PatientDAO, Integer> listKlinik;
 
+    @FXML
+    private TableColumn<PatientDAO, Boolean> listBooleanSelesai;
 
+    @FXML
+    private TableColumn<PatientDAO, Integer> listGender;
 
+    @FXML
+    private TableColumn<PatientDAO, String> ListActionAssesmen;
 
 
     @FXML
@@ -48,7 +63,12 @@ public class AdminPatientpageController {
 
     @FXML
     public void refresh(ActionEvent event) {
+        PatientDAO patientDAO = new PatientDAO();
+        ArrayList<PatientDAO> patients = patientDAO.getAllPatients();
 
+        ObservableList<PatientDAO> dataPatient = FXCollections.observableArrayList(patients);
+
+        patientTable.setItems(dataPatient);
     }
 
     @FXML
@@ -113,5 +133,20 @@ public class AdminPatientpageController {
     }
 
     public void clinicDropdown(ActionEvent event) {
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        PatientDAO patient = new PatientDAO();
+        ArrayList<PatientDAO> patients = patient.getAllPatients();
+        ObservableList<PatientDAO> dataPatient = FXCollections.observableArrayList(patients);
+
+        patientTable.setItems(dataPatient);
+        listNomorTabelAssesmen.setCellValueFactory(new PropertyValueFactory<>("patient_id"));
+        listNamaPasien.setCellValueFactory(new PropertyValueFactory<>("patient_name"));
+        listTglLahir.setCellValueFactory(new PropertyValueFactory<>("patient_birthdate"));
+        listKlinik.setCellValueFactory(new PropertyValueFactory<>("clinic"));
+        listBooleanSelesai.setCellValueFactory(new PropertyValueFactory<>("diagnose"));
+        listGender.setCellValueFactory(new PropertyValueFactory<>("patient_gender"));
     }
 }

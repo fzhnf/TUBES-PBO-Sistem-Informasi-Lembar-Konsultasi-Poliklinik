@@ -11,13 +11,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javafx.util.Callback;
 import javafx.util.Duration;
 
 import java.io.IOException;
@@ -65,13 +63,12 @@ public class AdminDoctorpageController implements Initializable {
     @FXML
     void refresh(ActionEvent event) {
         UserDAO userDAO = new UserDAO();
-        ArrayList<UserDAO> users = userDAO.getAllUsers();
+        ArrayList<UserDAO> users;
+        users = userDAO.getAllUsers();
 
-        // Create an observable list to hold the data
-        ObservableList<UserDAO> data = FXCollections.observableArrayList(users);
+        ObservableList<UserDAO> dataDoctor = FXCollections.observableArrayList(users);
 
-        // Set data to the table
-        doctorTable.setItems(data);
+        doctorTable.setItems(dataDoctor);
     }
 
     @FXML
@@ -133,12 +130,9 @@ public class AdminDoctorpageController implements Initializable {
         UserDAO user = new UserDAO();
         ArrayList<UserDAO> users = user.getAllUsers();
 
-        // Create an observable list to hold the data
-        ObservableList<UserDAO> data = FXCollections.observableArrayList(users);
+        ObservableList<UserDAO> dataDoctor = FXCollections.observableArrayList(users);
 
-        // Set data to the table
-
-        doctorTable.setItems(data);
+        doctorTable.setItems(dataDoctor);
         listNomorTabelAssesmen.setCellValueFactory(new PropertyValueFactory<>("userId"));
         listUsername.setCellValueFactory(new PropertyValueFactory<>("username"));
         listKlinik.setCellValueFactory(new PropertyValueFactory<>("clinic"));

@@ -60,13 +60,15 @@
    <center>
       <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <center>
-            <TableView prefHeight="200.0" prefWidth="589.0" BorderPane.alignment="CENTER">
+            <TableView fx:id="patientTable" prefHeight="200.0" prefWidth="589.0" BorderPane.alignment="CENTER">
                <columns>
                   <TableColumn fx:id="listNomorTabelAssesmen" maxWidth="141.0" prefWidth="31.0" text="No" />
-                  <TableColumn fx:id="listTglAssesmenTabelAssesmen" maxWidth="300.0" minWidth="0.0" prefWidth="163.0" text="Assesment Date" />
-                  <TableColumn fx:id="listKlinik" maxWidth="374.0" minWidth="0.0" prefWidth="159.0" text="Clinic" />
-                  <TableColumn fx:id="listBooleanSelesai" maxWidth="425.0" minWidth="0.0" prefWidth="137.0" text="Diagnose" />
-                  <TableColumn fx:id="ListActionAssesmen" maxWidth="556.0" prefWidth="98.0" text="Action" />
+                  <TableColumn fx:id="listNamaPasien" maxWidth="300.0" minWidth="0.0" prefWidth="143.0" text="Patient Name" />
+                  <TableColumn fx:id="listTglLahir" maxWidth="300.0" minWidth="0.0" prefWidth="113.0" text="Birthdate" />
+                  <TableColumn fx:id="listKlinik" maxWidth="374.0" minWidth="0.0" prefWidth="64.0" text="Clinic" />
+                  <TableColumn fx:id="listBooleanSelesai" maxWidth="285.0" minWidth="0.0" prefWidth="73.0" text="Diagnose" />
+                  <TableColumn fx:id="listGender" maxWidth="141.0" prefWidth="72.0" text="Gender" />
+                  <TableColumn fx:id="ListActionAssesmen" maxWidth="556.0" prefWidth="105.0" text="Action" />
                </columns>
             </TableView>
          </center>
