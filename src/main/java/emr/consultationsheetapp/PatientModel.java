@@ -9,15 +9,15 @@ public abstract class PatientModel {
     protected Date patientBirthdate;
 
     protected int clinic;
-    protected int diagnose;
+    protected int diagnoseStatus;
 
 
-    public PatientModel(String patientName, int patientGender, Date patientBirthdate, int clinic, int diagnose) {
+    public PatientModel(String patientName, int patientGender, Date patientBirthdate, int clinic, int diagnoseStatus) {
         this.patientName = patientName;
         this.patientGender = patientGender;
         this.patientBirthdate = patientBirthdate;
         this.clinic = clinic;
-        this.diagnose = diagnose;
+        this.diagnoseStatus = diagnoseStatus;
     }
 
     public PatientModel() {
@@ -63,12 +63,12 @@ public abstract class PatientModel {
         this.clinic = clinic;
     }
 
-    public int getDiagnose() {
-        return diagnose;
+    public int getdiagnoseStatus() {
+        return diagnoseStatus;
     }
 
-    public void setDiagnose(int diagnose) {
-        this.diagnose = diagnose;
+    public void setdiagnoseStatus(int diagnoseStatus) {
+        this.diagnoseStatus = diagnoseStatus;
     }
 
     @Override
@@ -77,9 +77,9 @@ public abstract class PatientModel {
                 "patientId=" + patientId +
                 ", patientName='" + patientName + '\'' +
                 ", patientGender=" + patientGender +
-                ", patientBirthdate='" + patientBirthdate + '\'' +
-                ", clinic='" + clinic + '\'' +
-                ", diagnose=" + diagnose +
+                ", patientBirthdate=" + patientBirthdate +
+                ", clinic=" + clinic +
+                ", diagnoseStatus=" + diagnoseStatus +
                 '}';
     }
 }

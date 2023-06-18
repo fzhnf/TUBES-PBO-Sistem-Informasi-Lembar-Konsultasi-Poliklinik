@@ -42,4 +42,13 @@ public abstract class UserModel {
     public void setClinic(int clinic) {
         this.clinic = clinic;
     }
+
+    @Override
+    public String toString() {
+        return "UserModel{" +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", clinic=" + clinic +
+                '}';
+    }
 }

@@ -25,7 +25,11 @@ import java.util.Date;
 import java.util.ResourceBundle;
 
 public class AdminPatientpageController implements Initializable {
+    @FXML
+    private TableColumn<PatientDAO, String> ListActionAssesmen;
 
+    @FXML
+    private Button addPatientButton;
 
     @FXML
     private Button changeScenetoAddNewPatientButton;
@@ -34,32 +38,32 @@ public class AdminPatientpageController implements Initializable {
     private Button changeScenetoAdministrasiDokterButton;
 
     @FXML
-    private TableView<PatientDAO> patientTable;
-
-    @FXML
-    private TableColumn<PatientDAO, Integer> listNomorTabelAssesmen;
-
-    @FXML
-    private TableColumn<PatientDAO, String> listNamaPasien;
-
-    @FXML
-    private TableColumn<PatientDAO, Date> listTglLahir;
-
-    @FXML
-    private TableColumn<PatientDAO, Integer> listKlinik;
-
-    @FXML
     private TableColumn<PatientDAO, Integer> listBooleanSelesai;
 
     @FXML
     private TableColumn<PatientDAO, Integer> listGender;
 
     @FXML
-    private TableColumn<PatientDAO, String> ListActionAssesmen;
+    private TableColumn<PatientDAO, Integer> listKlinik;
 
+    @FXML
+    private TableColumn<PatientDAO, String> listNamaPasien;
+
+    @FXML
+    private TableColumn<PatientDAO, Integer> listNomorTabelAssesmen;
+
+    @FXML
+    private TableColumn<PatientDAO, Date> listTglLahir;
 
     @FXML
     private Button logoutButton;
+
+    @FXML
+    private TableView<PatientDAO> patientTable;
+
+    @FXML
+    private Button refreshButton;
+
 
     @FXML
     public void refresh(ActionEvent event) {
@@ -81,12 +85,6 @@ public class AdminPatientpageController implements Initializable {
         stage.initStyle(StageStyle.UTILITY);
         stage.show();
     }
-
-
-//    @FXML
-//    void changeScenetoAddNewPatient(ActionEvent event) throws IOException {
-//
-//    }
 
     @FXML
     void changeScenetoAdministrasiDokter(ActionEvent event) throws IOException {
@@ -132,21 +130,18 @@ public class AdminPatientpageController implements Initializable {
         transition.play();
     }
 
-    public void clinicDropdown(ActionEvent event) {
-    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         PatientDAO patient = new PatientDAO();
         ArrayList<PatientDAO> patients = patient.getAllPatients();
         ObservableList<PatientDAO> dataPatient = FXCollections.observableArrayList(patients);
-
         patientTable.setItems(dataPatient);
         listNomorTabelAssesmen.setCellValueFactory(new PropertyValueFactory<>("patientId"));
         listNamaPasien.setCellValueFactory(new PropertyValueFactory<>("patientName"));
         listTglLahir.setCellValueFactory(new PropertyValueFactory<>("patientBirthdate"));
         listKlinik.setCellValueFactory(new PropertyValueFactory<>("clinic"));
-        listBooleanSelesai.setCellValueFactory(new PropertyValueFactory<>("diagnose"));
+        listBooleanSelesai.setCellValueFactory(new PropertyValueFactory<>("diagnoseStatus"));
         listGender.setCellValueFactory(new PropertyValueFactory<>("patientGender"));
     }
 }
