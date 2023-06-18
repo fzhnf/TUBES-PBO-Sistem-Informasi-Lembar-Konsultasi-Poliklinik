@@ -15,6 +15,11 @@ public abstract class UserModel {
         this.username = username;
         this.password = password;
     }
+
+    public UserModel() {
+
+    }
+
     public String getUsername() {
         return username;
     }

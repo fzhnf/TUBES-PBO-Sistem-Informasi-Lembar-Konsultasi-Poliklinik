@@ -2,23 +2,31 @@ package emr.consultationsheetapp;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.ParallelTransition;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Callback;
 import javafx.util.Duration;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-public class AdminDoctorpageController {
+public class AdminDoctorpageController implements Initializable {
 
-    @FXML
-    private TableColumn<?, ?> ListActionAssesmen;
 
     @FXML
     private Button addDoctorButton;
@@ -30,13 +38,22 @@ public class AdminDoctorpageController {
     private Button changeScenetoAdministrasiDokterButton;
 
     @FXML
-    private TableColumn<?, ?> listKlinik;
+    private TableView<UserDAO> doctorTable;
 
     @FXML
-    private TableColumn<?, ?> listNomorTabelAssesmen;
+    private TableColumn<UserDAO, Integer> listNomorTabelAssesmen;
 
     @FXML
-    private TableColumn<?, ?> listTglAssesmenTabelAssesmen;
+    private TableColumn<UserDAO, String > listUsername;
+
+    @FXML
+    private TableColumn<UserDAO, Integer> listKlinik;
+
+    @FXML
+    private TableColumn<UserDAO, String> ListActionAssesmen;
+
+
+
 
     @FXML
     private Button logoutButton;
@@ -47,7 +64,14 @@ public class AdminDoctorpageController {
 
     @FXML
     void refresh(ActionEvent event) {
+        UserDAO userDAO = new UserDAO();
+        ArrayList<UserDAO> users = userDAO.getAllUsers();
 
+        // Create an observable list to hold the data
+        ObservableList<UserDAO> data = FXCollections.observableArrayList(users);
+
+        // Set data to the table
+        doctorTable.setItems(data);
     }
 
     @FXML
@@ -82,12 +106,6 @@ public class AdminDoctorpageController {
         });
         transition.play();
     }
-
-    //@FXML
-    //void changeScenetoAdministrasiDokter(ActionEvent event) {
-
-    //}
-
     @FXML
     void logout(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("loginpage-view.fxml"));
@@ -110,4 +128,19 @@ public class AdminDoctorpageController {
         transition.play();
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        UserDAO user = new UserDAO();
+        ArrayList<UserDAO> users = user.getAllUsers();
+
+        // Create an observable list to hold the data
+        ObservableList<UserDAO> data = FXCollections.observableArrayList(users);
+
+        // Set data to the table
+
+        doctorTable.setItems(data);
+        listNomorTabelAssesmen.setCellValueFactory(new PropertyValueFactory<>("userId"));
+        listUsername.setCellValueFactory(new PropertyValueFactory<>("username"));
+        listKlinik.setCellValueFactory(new PropertyValueFactory<>("clinic"));
+    }
 }

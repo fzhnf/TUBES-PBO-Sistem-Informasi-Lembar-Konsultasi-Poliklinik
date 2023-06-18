@@ -7,6 +7,12 @@ import static java.sql.DriverManager.getConnection;
 
 public class UserDAO extends UserModel {
     DBUtil database = new DBUtil();
+    int userId;
+
+    UserDAO(String username, String password, int clinic, int userId) {
+        super(username, password, clinic);
+        this.userId = userId;
+    }
 
     UserDAO(String username, String password, int clinic) {
         super(username, password, clinic);
@@ -14,6 +20,10 @@ public class UserDAO extends UserModel {
 
     UserDAO(String username, String password) {
         super(username, password);
+    }
+
+    public UserDAO() {
+        super();
     }
 
     public int getUserId() {

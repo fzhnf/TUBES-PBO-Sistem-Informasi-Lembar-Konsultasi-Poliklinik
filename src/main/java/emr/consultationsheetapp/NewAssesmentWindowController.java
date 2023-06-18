@@ -48,13 +48,13 @@ public class NewAssesmentWindowController implements Initializable {
         boolean validateEmpty = (InputTextName.getText().isBlank() || InputBirthDate.getValue() == null || !(priaSelected.isSelected() || wanitaSelected.isSelected()) || clinicDropdownOption.getValue() == null);
         if (validateEmpty) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Data nya mana Dekk!!");
-            alert.setContentText("Kata nya mau dirawat, kok data ny ga lengkap, kamu pikir rumah sakit ga perlu data? PERLU DEK!!");
+            alert.setTitle("ERROR INPUT");
+            alert.setContentText("Please input patient data");
             alert.show();
         } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Data nya mana Dekk!!");
-            alert.setContentText("Kata nya mau dirawat, kok data ny ga lengkap, kamu pikir rumah sakit ga perlu data? PERLU DEK!!");
+            alert.setTitle("SUCCESS!");
+            alert.setContentText("Data patient was succesfully added to database");
             alert.show();
         }
     }

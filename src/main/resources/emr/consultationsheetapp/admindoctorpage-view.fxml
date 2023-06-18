@@ -15,7 +15,7 @@
    <left>
       <AnchorPane prefHeight="600.0" prefWidth="150.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="changeScenetoAddNewPatientButton" layoutX="14.0" layoutY="167.0" mnemonicParsing="false" onAction="#changeScenetoAddNewPatient" prefHeight="27.0" prefWidth="123.0" style="-fx-background-color: #a7def2; -fx-background-radius: 100;" text="Pasien" textFill="#1481bb">
+            <Button fx:id="changeScenetoAddNewPatientButton" layoutX="14.0" layoutY="167.0" mnemonicParsing="false" onAction="#changeScenetoAddNewPatient" prefHeight="27.0" prefWidth="123.0" style="-fx-background-color: #a7def2; -fx-background-radius: 100;" text="Patient" textFill="#1481bb">
                <font>
                   <Font size="13.0" />
                </font>
@@ -36,7 +36,7 @@
                   <Font size="17.0" />
                </font>
             </Label>
-            <Label layoutX="41.0" layoutY="139.0" prefHeight="21.0" prefWidth="69.0" text="userName" textFill="#1481bb">
+            <Label alignment="CENTER" layoutX="41.0" layoutY="139.0" prefHeight="21.0" prefWidth="69.0" text="faiz" textFill="#1481bb">
                <font>
                   <Font size="15.0" />
                </font>
@@ -46,7 +46,7 @@
                   <Image url="@electronic-health-record.png" />
                </image>
             </ImageView>
-            <Button fx:id="changeScenetoAdministrasiDokterButton" layoutX="14.0" layoutY="200.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="123.0" style="-fx-background-color: #a7def2; -fx-background-radius: 100;" text="Dokter" textFill="#1481bb">
+            <Button fx:id="changeScenetoAdministrasiDokterButton" layoutX="14.0" layoutY="200.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="123.0" style="-fx-background-color: #a7def2; -fx-background-radius: 100;" text="Doctor" textFill="#1481bb">
                <font>
                   <Font size="13.0" />
                </font>
@@ -60,11 +60,11 @@
    <center>
       <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <center>
-            <TableView editable="true" prefHeight="200.0" prefWidth="95.0" BorderPane.alignment="CENTER">
+            <TableView fx:id="doctorTable" editable="true" prefHeight="200.0" prefWidth="95.0" BorderPane.alignment="CENTER">
                <columns>
-                  <TableColumn fx:id="listNomorTabelAssesmen" maxWidth="141.0" prefWidth="31.0" text="No" />
-                  <TableColumn fx:id="listTglAssesmenTabelAssesmen" maxWidth="300.0" minWidth="0.0" prefWidth="193.0" text="Username" />
-                  <TableColumn fx:id="listKlinik" maxWidth="374.0" minWidth="0.0" prefWidth="199.0" text="Klinik" />
+                  <TableColumn fx:id="listNomorTabelAssesmen" maxWidth="141.0" prefWidth="31.0" text="ID" />
+                  <TableColumn fx:id="listUsername" maxWidth="300.0" minWidth="0.0" prefWidth="193.0" text="Username" />
+                  <TableColumn fx:id="listKlinik" maxWidth="374.0" minWidth="0.0" prefWidth="199.0" text="Clinic" />
                   <TableColumn fx:id="ListActionAssesmen" maxWidth="556.0" prefWidth="165.0" text="Action" />
                </columns>
                <columnResizePolicy>
@@ -86,10 +86,10 @@
                </children></AnchorPane>
          </top>
          <right>
-            <AnchorPane prefHeight="44.0" prefWidth="10.0" BorderPane.alignment="CENTER" />
+            <AnchorPane prefHeight="44.0" prefWidth="10.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER" />
          </right>
          <bottom>
-            <AnchorPane prefHeight="10.0" prefWidth="599.0" BorderPane.alignment="CENTER" />
+            <AnchorPane prefHeight="10.0" prefWidth="599.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER" />
          </bottom>
          <left>
             <AnchorPane prefHeight="44.0" prefWidth="0.0" BorderPane.alignment="CENTER" />

@@ -17,11 +17,6 @@ import java.io.IOException;
 
 public class AdminPatientpageController {
 
-    @FXML
-    private TableColumn<?, ?> ListActionAssesmen;
-
-    @FXML
-    private Button changeSceneToLembarKonsultasiButton;
 
     @FXML
     private Button changeScenetoAddNewPatientButton;
@@ -30,16 +25,23 @@ public class AdminPatientpageController {
     private Button changeScenetoAdministrasiDokterButton;
 
     @FXML
-    private TableColumn<?, ?> listBooleanSelesai;
+    private TableColumn<?, ?> listNomorTabelAssesmen;
+
+    @FXML
+    private TableColumn<?, ?> listTglAssesmenTabelAssesmen;
 
     @FXML
     private TableColumn<?, ?> listKlinik;
 
     @FXML
-    private TableColumn<?, ?> listNomorTabelAssesmen;
+    private TableColumn<?, ?> listBooleanSelesai;
 
     @FXML
-    private TableColumn<?, ?> listTglAssesmenTabelAssesmen;
+    private TableColumn<?, ?> ListActionAssesmen;
+
+
+
+
 
     @FXML
     private Button logoutButton;
