@@ -15,7 +15,7 @@
    <left>
       <AnchorPane prefHeight="600.0" prefWidth="150.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="changeScenetoAddNewPatientButton" layoutX="14.0" layoutY="167.0" mnemonicParsing="false" onAction="#changeScenetoAdministrasiDokter" prefHeight="27.0" prefWidth="123.0" style="-fx-background-color: #a7def2; -fx-background-radius: 100;" text="Pasien" textFill="#1481bb">
+            <Button fx:id="changeScenetoAddNewPatientButton" layoutX="14.0" layoutY="167.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="123.0" style="-fx-background-color: #a7def2; -fx-background-radius: 100;" text="Pasien" textFill="#1481bb">
                <font>
                   <Font size="13.0" />
                </font>
@@ -77,7 +77,10 @@
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor></Button>
-                  <Button fx:id="refreshButton" layoutY="5.0" mnemonicParsing="false" onAction="#refresh" style="-fx-background-color: #a7def2; -fx-background-radius: 100;" text="Refresh" />
+                  <Button fx:id="refreshButton" layoutY="5.0" mnemonicParsing="false" onAction="#refresh" style="-fx-background-color: #a7def2; -fx-background-radius: 100;" text="Refresh">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
                </children>
             </AnchorPane>
          </top>

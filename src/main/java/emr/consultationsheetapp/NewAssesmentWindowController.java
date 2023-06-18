@@ -36,15 +36,12 @@ public class NewAssesmentWindowController implements Initializable {
     @FXML
     private ComboBox<String> clinicDropdownOption;
 
-    public static void closeWindow(Stage stage) {
-        stage.close();
-    }
 
-    @FXML
-    void clinicDropdown(ActionEvent event) {
-//        String clinicOption = clinicDropdownOption.getSelectionModel().getSelectedItem().toString();
+//    @FXML
+//    void clinicDropdown(ActionEvent event) {
+//       String clinicOption = clinicDropdownOption.getSelectionModel().getSelectedItem().toString();
 //        label.setText
-    }
+//    }
 
     @FXML
     void AddNewAssesment(ActionEvent event) throws IOException {
