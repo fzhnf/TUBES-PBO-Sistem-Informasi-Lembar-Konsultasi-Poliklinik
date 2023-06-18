@@ -47,7 +47,7 @@ public class AdminPatientpageController {
     }
 
     @FXML
-    void addPatient(ActionEvent event) throws IOException {
+    public void addPatient(ActionEvent event) throws IOException {
         Parent parent = FXMLLoader.load(getClass().getResource("newassesment-window.fxml"));
         Scene scene = new Scene(parent);
         Stage stage = new Stage();
@@ -56,6 +56,8 @@ public class AdminPatientpageController {
         stage.initStyle(StageStyle.UTILITY);
         stage.show();
     }
+
+
 
 
     //@FXML
@@ -83,4 +85,6 @@ public class AdminPatientpageController {
         stage.setTitle("e-ConsultationSheet");
     }
 
+    public void clinicDropdown(ActionEvent event) {
+    }
 }

@@ -37,7 +37,10 @@ public class LoginpageController {
         } else if ( userId == 0) {
             openAdminPage();
         } else {
-            openDoctorPage();
+            loginMessageLabel.setText(String.valueOf(userId));
+            usernameInput.setText("");
+            passwordInput.setText("");
+            //openDoctorPage();
         }
     }
 
