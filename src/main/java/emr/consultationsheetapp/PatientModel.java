@@ -6,13 +6,13 @@ public class PatientModel {
     private int patientId;
     private String patientName;
     private int patientGender;
-    private String patientBirthdate;
+    private Date patientBirthdate;
 
-    private String clinic;
+    private int clinic;
     private boolean diagnose;
 
-    public PatientModel(int patientId, String patientName, int patientGender, String patientBirthdate, String clinic, boolean diagnose) {
-        this.patientId = patientId;
+
+    public PatientModel(String patientName, int patientGender, Date patientBirthdate, int clinic, boolean diagnose) {
         this.patientName = patientName;
         this.patientGender = patientGender;
         this.patientBirthdate = patientBirthdate;
@@ -20,19 +20,11 @@ public class PatientModel {
         this.diagnose = diagnose;
     }
 
-    public PatientModel(String patientName, int patientGender, String patientBirthdate, String clinic, boolean diagnose) {
+    public PatientModel(String patientName, int patientGender, Date patientBirthdate, int clinic) {
         this.patientName = patientName;
         this.patientGender = patientGender;
         this.patientBirthdate = patientBirthdate;
         this.clinic = clinic;
-        this.diagnose = diagnose;
-    }
-
-    public PatientModel(int patientGender, String patientBirthdate, String clinic, boolean diagnose) {
-        this.patientGender = patientGender;
-        this.patientBirthdate = patientBirthdate;
-        this.clinic = clinic;
-        this.diagnose = diagnose;
     }
 
     public int getPatientId() {
@@ -59,23 +51,23 @@ public class PatientModel {
         this.patientGender = patientGender;
     }
 
-    public String getPatientBirthdate() {
+    public Date getPatientBirthdate() {
         return patientBirthdate;
     }
 
-    public void setPatientBirthdate(String patientBirthdate) {
+    public void setPatientBirthdate(Date patientBirthdate) {
         this.patientBirthdate = patientBirthdate;
     }
 
-    public String getClinic() {
+    public int getClinic() {
         return clinic;
     }
 
-    public void setClinic(String clinic) {
+    public void setClinic(int clinic) {
         this.clinic = clinic;
     }
 
-    public boolean isDiagnose() {
+    public boolean getDiagnose() {
         return diagnose;
     }
 

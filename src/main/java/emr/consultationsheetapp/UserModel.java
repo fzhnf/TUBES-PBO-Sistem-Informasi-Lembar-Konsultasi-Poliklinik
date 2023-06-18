@@ -3,13 +3,18 @@ package emr.consultationsheetapp;
 public abstract class UserModel {
     protected String username;
     protected String password;
+    protected int clinic;
+
+
+    public UserModel(String username, String password, int clinic) {
+        this.username = username;
+        this.password = password;
+        this.clinic = clinic;
+    }
     public UserModel(String username, String password) {
         this.username = username;
         this.password = password;
     }
-    public UserModel() {
-    }
-
     public String getUsername() {
         return username;
     }
@@ -26,12 +31,10 @@ public abstract class UserModel {
         this.password = password;
     }
 
-
-    @Override
-    public String toString() {
-        return "UserModel{" +
-                "username='" + username + '\'' +
-                ", password='" + password +
-                '}';
+    public int getClinic() {
+        return clinic;
+    }
+    public void setClinic(int clinic) {
+        this.clinic = clinic;
     }
 }
