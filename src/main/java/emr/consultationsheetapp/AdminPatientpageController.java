@@ -49,7 +49,7 @@ public class AdminPatientpageController implements Initializable {
     private TableColumn<PatientDAO, Integer> listKlinik;
 
     @FXML
-    private TableColumn<PatientDAO, Boolean> listBooleanSelesai;
+    private TableColumn<PatientDAO, Integer> listBooleanSelesai;
 
     @FXML
     private TableColumn<PatientDAO, Integer> listGender;
@@ -142,11 +142,11 @@ public class AdminPatientpageController implements Initializable {
         ObservableList<PatientDAO> dataPatient = FXCollections.observableArrayList(patients);
 
         patientTable.setItems(dataPatient);
-        listNomorTabelAssesmen.setCellValueFactory(new PropertyValueFactory<>("patient_id"));
-        listNamaPasien.setCellValueFactory(new PropertyValueFactory<>("patient_name"));
-        listTglLahir.setCellValueFactory(new PropertyValueFactory<>("patient_birthdate"));
+        listNomorTabelAssesmen.setCellValueFactory(new PropertyValueFactory<>("patientId"));
+        listNamaPasien.setCellValueFactory(new PropertyValueFactory<>("patientName"));
+        listTglLahir.setCellValueFactory(new PropertyValueFactory<>("patientBirthdate"));
         listKlinik.setCellValueFactory(new PropertyValueFactory<>("clinic"));
         listBooleanSelesai.setCellValueFactory(new PropertyValueFactory<>("diagnose"));
-        listGender.setCellValueFactory(new PropertyValueFactory<>("patient_gender"));
+        listGender.setCellValueFactory(new PropertyValueFactory<>("patientGender"));
     }
 }

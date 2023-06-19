@@ -9,10 +9,10 @@ public abstract class PatientModel {
     protected Date patientBirthdate;
 
     protected int clinic;
-    protected boolean diagnose;
+    protected int diagnose;
 
 
-    public PatientModel(String patientName, int patientGender, Date patientBirthdate, int clinic, boolean diagnose) {
+    public PatientModel(String patientName, int patientGender, Date patientBirthdate, int clinic, int diagnose) {
         this.patientName = patientName;
         this.patientGender = patientGender;
         this.patientBirthdate = patientBirthdate;
@@ -63,11 +63,11 @@ public abstract class PatientModel {
         this.clinic = clinic;
     }
 
-    public boolean getDiagnose() {
+    public int getDiagnose() {
         return diagnose;
     }
 
-    public void setDiagnose(boolean diagnose) {
+    public void setDiagnose(int diagnose) {
         this.diagnose = diagnose;
     }
 

@@ -7,12 +7,12 @@ import java.util.Date;
 public class PatientDAO extends PatientModel {
     DBUtil database = new DBUtil();
     int patientId;
-    public PatientDAO(String patientName, int patientGender, Date patientBirthdate, int clinic, boolean diagnose, int patientId) {
+    public PatientDAO(String patientName, int patientGender, Date patientBirthdate, int clinic, int diagnose, int patientId) {
         super(patientName, patientGender, patientBirthdate, clinic, diagnose);
         this.patientId = patientId;
     }
 
-    public PatientDAO(String patientName, int patientGender, Date patientBirthdate, int clinic, boolean diagnose) {
+    public PatientDAO(String patientName, int patientGender, Date patientBirthdate, int clinic, int diagnose) {
         super(patientName, patientGender, patientBirthdate, clinic, diagnose);
     }
 
@@ -108,7 +108,7 @@ public class PatientDAO extends PatientModel {
     }
 
     @Override
-    public boolean getDiagnose() {
+    public int getDiagnose() {
         try (Connection connectDB = database.getConnection()) {
             String query = "SELECT diagnose FROM patient_table WHERE patient_id = '" + getPatientId() + "'";
             Statement statement = connectDB.createStatement();
@@ -119,11 +119,11 @@ public class PatientDAO extends PatientModel {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return false;
+        return 0;
     }
 
     @Override
-    public void setDiagnose(boolean diagnose) {
+    public void setDiagnose(int diagnose) {
         try (Connection connectDB = database.getConnection()) {
             String query = "UPDATE patient_table SET diagnose = '" + diagnose + "' WHERE patient_id = '" + getPatientId() + "'";
             Statement statement = connectDB.createStatement();
@@ -155,7 +155,7 @@ public class PatientDAO extends PatientModel {
             throw new RuntimeException(e);
         }
     }
-    public void addPatient(String patientName, int patientGender, Date patientBirthdate, int clinic, boolean diagnose) {
+    public void addPatient(String patientName, int patientGender, Date patientBirthdate, int clinic, int diagnose) {
         try (Connection connectDB = database.getConnection()) {
             String query = "INSERT INTO patient_table WHERE patient_name  = '" + getPatientName() +"' AND patient_birthdate = '" + getPatientBirthdate() +"' AND patient_gender = '" + getPatientGender() + "' AND clinic = '" + getClinic() + "' AND diagnose = '" + getDiagnose() + "'";
             Statement statement = connectDB.createStatement();
@@ -181,7 +181,7 @@ public class PatientDAO extends PatientModel {
             ResultSet queryResult = statement.executeQuery(query);
             ArrayList<PatientDAO> patients = new ArrayList<>();
             while (queryResult.next()) {
-                patients.add(new PatientDAO(queryResult.getString("patient_name"), queryResult.getInt("patient_gender"), queryResult.getDate("patient_birthdate"), queryResult.getInt("clinic"), queryResult.getBoolean("diagnose"), queryResult.getInt("patient_id")));
+                patients.add(new PatientDAO(queryResult.getString("patient_name"), queryResult.getInt("patient_gender"), queryResult.getDate("patient_birthdate"), queryResult.getInt("clinic"), queryResult.getInt("diagnose"), queryResult.getInt("patient_id")));
             }
             return patients;
         } catch (SQLException e) {
