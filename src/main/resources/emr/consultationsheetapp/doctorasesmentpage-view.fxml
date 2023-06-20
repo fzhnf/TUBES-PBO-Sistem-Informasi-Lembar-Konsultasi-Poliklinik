@@ -11,11 +11,11 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tubespbo.lembarkonsultasi.Controller.ConsultationHistoryPageController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="emr.consultationsheetapp.DoctorAssesmentController">
    <left>
       <AnchorPane prefHeight="600.0" prefWidth="150.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="changeSceneToLembarKonsultasiButton" layoutX="14.0" layoutY="173.0" mnemonicParsing="false" onAction="#changeSceneToLembarKonsultasi" prefHeight="27.0" prefWidth="123.0" style="-fx-background-color: #a7def2; -fx-background-radius: 100;" text="Assesmen" textFill="#1481bb">
+            <Button fx:id="changeSceneTindakLanjutButton" layoutX="14.0" layoutY="167.0" mnemonicParsing="false" onAction="#changeSceneTindakLanjut" prefHeight="27.0" prefWidth="123.0" style="-fx-background-color: #a7def2; -fx-background-radius: 100;" text="Assesmen" textFill="#1481bb">
                <font>
                   <Font size="13.0" />
                </font>
@@ -23,7 +23,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="changeSceneTindakLanjutButton" layoutX="14.0" layoutY="206.0" mnemonicParsing="false" onAction="#changeSceneTindakLanjut" prefHeight="27.0" prefWidth="123.0" style="-fx-background-color: #a7def2; -fx-background-radius: 100;" text="Lembar Konsultasi" textFill="#1481bb">
+            <Button fx:id="changeSceneToLembarKonsultasiButton" layoutX="14.0" layoutY="200.0" mnemonicParsing="false" onAction="#changeSceneToLembarKonsultasi" prefHeight="27.0" prefWidth="123.0" style="-fx-background-color: #a7def2; -fx-background-radius: 100;" text="Lembar Konsultasi" textFill="#1481bb">
                <font>
                   <Font size="13.0" />
                </font>
@@ -44,7 +44,7 @@
                   <Font size="17.0" />
                </font>
             </Label>
-            <Label layoutX="41.0" layoutY="139.0" prefHeight="21.0" prefWidth="69.0" text="userName" textFill="#1481bb">
+            <Label alignment="CENTER" layoutX="41.0" layoutY="139.0" prefHeight="21.0" prefWidth="69.0" text="Doctor" textAlignment="CENTER" textFill="#1481bb">
                <font>
                   <Font size="15.0" />
                </font>
@@ -62,12 +62,12 @@
          <center>
             <TableView prefHeight="400.0" prefWidth="583.0" BorderPane.alignment="CENTER">
                <columns>
-                  <TableColumn fx:id="listNomorTabelAssesmenLama" maxWidth="33.0" prefWidth="32.0" resizable="false" text="No" />
-                  <TableColumn fx:id="listTglAssesmentTabelAssesmenLama" prefWidth="155.0" text="Tanggal Assessment" />
-                  <TableColumn fx:id="listNamaTabelAssesmenLama" prefWidth="124.0" text="Nama" />
-                  <TableColumn fx:id="listJenisKelaminTabelAssesmenLama" maxWidth="3000.0" prefWidth="87.0" text="Jenis Kelamin" />
-                  <TableColumn fx:id="listTglLahirTabelAssesmenLama" prefWidth="135.0" text="Tanggal lahir" />
-                  <TableColumn fx:id="ListActionAssesmenLama" maxWidth="94.0" prefWidth="55.0" text="Action" />
+                  <TableColumn fx:id="listNomorTabelAssesmenBaru" maxWidth="33.0" prefWidth="32.0" resizable="false" text="No" />
+                  <TableColumn fx:id="listTglAssesmentTabelAssesmenBaru" prefWidth="137.0" text="Assesment Date" />
+                  <TableColumn fx:id="listNamaTabelAssesmenBaru" prefWidth="133.0" text="Name" />
+                  <TableColumn fx:id="listJenisKelaminTabelAssesmenBaru" maxWidth="3000.0" prefWidth="70.0" text="Gender" />
+                  <TableColumn fx:id="listTglLahirTabelAssesmenBaru" prefWidth="137.0" text="Birthdate" />
+                  <TableColumn fx:id="ListActionAssesmenBaru" maxWidth="94.0" prefWidth="79.0" text="Action" />
                </columns>
             </TableView>
          </center>

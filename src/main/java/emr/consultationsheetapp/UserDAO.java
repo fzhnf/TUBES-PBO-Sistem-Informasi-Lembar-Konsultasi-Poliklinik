@@ -4,7 +4,7 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class UserDAO extends UserModel {
-    DBUtil database = new DBUtil();
+    static DBUtil database = new DBUtil();
     int userId;
 
     public UserDAO(String username, String password, int clinic, int userId) {
@@ -100,9 +100,12 @@ public class UserDAO extends UserModel {
     }
     public void createUser(String username, String password, int clinic) {
         try (Connection connectDB = database.getConnection()) {
-            String query = "INSERT INTO user_table (username, password, clinic) VALUES ('" + username + "', '" + password + "', '" + clinic + "')";
-            Statement statement = connectDB.createStatement();
-            statement.executeUpdate(query);
+            String query = "INSERT INTO user_table (username, password, clinic) VALUES ( ?, ?, ?)";
+            PreparedStatement statement = connectDB.prepareStatement(query);
+            statement.setString(1, username);
+            statement.setString(2, password);
+            statement.setInt(3, clinic);
+            statement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -129,6 +132,20 @@ public class UserDAO extends UserModel {
             return users;
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        }
+    }
+    public static void updatePatient(PatientDAO patient) throws SQLException {
+        try (Connection connectDB = database.getConnection()) {
+            String query = "UPDATE patient_table SET patient_name = ?, patient_gender = ?, patient_birthdate = ?, clinic = ? WHERE patient_id = ?";
+            PreparedStatement statement = connectDB.prepareStatement(query);
+            statement.setString(1, patient.getPatientName());
+            statement.setInt(2, patient.getPatientGender());
+            statement.setDate(3, new java.sql.Date(patient.getPatientBirthdate().getTime()));
+            statement.setInt(4, patient.getClinic());
+            statement.setInt(5, patient.getPatientId());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            throw e;
         }
     }
 }

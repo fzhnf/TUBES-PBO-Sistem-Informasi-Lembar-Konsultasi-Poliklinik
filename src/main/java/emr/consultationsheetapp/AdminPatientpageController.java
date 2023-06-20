@@ -11,9 +11,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.HBox;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Modality;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
@@ -144,75 +143,41 @@ public class AdminPatientpageController implements Initializable {
         listKlinik.setCellValueFactory(new PropertyValueFactory<>("clinic"));
         listGender.setCellValueFactory(new PropertyValueFactory<>("patientGender"));
 
-        ListActionAssesmen.setCellFactory(column -> {
-            return new TableCell<>() {
-                private final Button editButton = new Button("Edit");
-                private final Button deleteButton = new Button("Delete");
+        ListActionAssesmen.setCellFactory(param -> new TableCell<>() {
+            private final Button editButton = new Button("Edit");
+            private final Button deleteButton = new Button("Delete");
 
-                {
-                    editButton.setOnAction(event -> {
-                        PatientDAO patient = getTableView().getItems().get(getIndex());
-                        openEditWindow(patient);
-                    });
+            {
+                editButton.setOnAction(event -> {
+                    PatientDAO patient = getTableView().getItems().get(getIndex());
+                    // Tambahkan logika untuk melakukan edit data
+                });
 
-                    deleteButton.setOnAction(event -> {
-                        PatientDAO patient = getTableView().getItems().get(getIndex());
-                        showDeleteConfirmation(patient);
-                    });
-                }
-
-                @Override
-                protected void updateItem(Void item, boolean empty) {
-                    super.updateItem(item, empty);
-
-                    if (empty || getIndex() < 0) {
-                        setGraphic(null);
-                    } else {
-                        HBox buttonsContainer = new HBox(10);
-                        buttonsContainer.getChildren().addAll(editButton, deleteButton);
-                        setGraphic(buttonsContainer);
-                    }
-                }
-
-                private void openEditWindow(PatientDAO patient) {
-                    try {
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("newassesment-window.fxml"));
-                        Parent root = loader.load();
-                        // editController.setPatient(patient);
-
-                        Stage stage = new Stage();
-                        stage.setScene(new Scene(root));
-                        stage.setTitle("Edit Patient");
-                        stage.initModality(Modality.APPLICATION_MODAL);
-                        stage.showAndWait();
-
-                        // Refresh the table after editing
-                        refresh(null);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-
-                private void showDeleteConfirmation(PatientDAO patient) {
+                deleteButton.setOnAction(event -> {
+                    PatientDAO patient = getTableView().getItems().get(getIndex());
                     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                    alert.setTitle("Delete Patient");
-                    alert.setHeaderText("Confirm Deletion");
-                    alert.setContentText("Are you sure you want to delete this patient?");
+                    alert.setTitle("Confirmation");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Are you sure you want to delete this data?");
 
                     Optional<ButtonType> result = alert.showAndWait();
                     if (result.isPresent() && result.get() == ButtonType.OK) {
                         patient.deletePatient();
-                        refresh(null);
+                        // Tambahkan logika tambahan yang diperlukan setelah penghapusan data
                     }
+                });
+            }
+
+            @Override
+            protected void updateItem(Void item, boolean empty) {
+                super.updateItem(item, empty);
+
+                if (empty) {
+                    setGraphic(null);
+                } else {
+                    setGraphic(new HBox(editButton, deleteButton));
                 }
-            };
+            }
         });
-
-
-
-
-
-
-
     }
 }

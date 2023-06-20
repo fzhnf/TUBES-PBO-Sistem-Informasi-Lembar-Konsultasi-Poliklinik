@@ -40,10 +40,7 @@ public class LoginpageController {
         } else if ( userId == 0) {
             openAdminPage();
         } else {
-            loginMessageLabel.setText(String.valueOf(userId));
-            usernameInput.setText("");
-            passwordInput.setText("");
-            //openDoctorPage();
+            openDoctorPage();
         }
     }
 
@@ -64,7 +61,7 @@ public class LoginpageController {
         ParallelTransition transition = new ParallelTransition(fadeOut, fadeIn);
         transition.setOnFinished(e -> {
             stage.setScene(scene);
-            stage.setTitle("e-ConsultationSheet");
+            stage.setTitle("AdminPatient e-ConsultationSheet");
         });
         transition.play();
     }
@@ -74,7 +71,19 @@ public class LoginpageController {
         Parent root = loader.load();
         Scene scene = new Scene(root);
         Stage stage = (Stage) loginButton.getScene().getWindow();
-        stage.setTitle("e-ConsultationSheet");
-        stage.setScene(scene);
+        FadeTransition fadeOut = new FadeTransition(Duration.seconds(0.5), stage.getScene().getRoot());
+        fadeOut.setFromValue(1.0);
+        fadeOut.setToValue(0.0);
+
+        FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.5), root);
+        fadeIn.setFromValue(0.0);
+        fadeIn.setToValue(1.0);
+
+        ParallelTransition transition = new ParallelTransition(fadeOut, fadeIn);
+        transition.setOnFinished(e -> {
+            stage.setScene(scene);
+            stage.setTitle("Assesment e-ConsultationSheet");
+        });
+        transition.play();
     }
 }

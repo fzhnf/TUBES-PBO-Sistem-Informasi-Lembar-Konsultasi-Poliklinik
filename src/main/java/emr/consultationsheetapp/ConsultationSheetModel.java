@@ -6,11 +6,9 @@ public class ConsultationSheetModel {
     private int consultationSheetId;
     private Date createdAt;
     private int patientId;
-
     private int bloodPressuremmHg;
     private int heartRateBeatPerMinute;
     private int temperateCelcius;
-
     private int FeelingRate;
     private String physicalExaminationScript;
     private String diagnosisScript;

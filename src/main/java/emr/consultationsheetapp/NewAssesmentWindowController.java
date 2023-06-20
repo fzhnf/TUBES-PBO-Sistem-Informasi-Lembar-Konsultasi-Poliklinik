@@ -10,7 +10,6 @@ import javafx.scene.control.*;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.Date;
 import java.util.ResourceBundle;
 
@@ -41,65 +40,21 @@ public class NewAssesmentWindowController implements Initializable {
             alert.setContentText("Please input patient data");
             alert.show();
         } else {
-            int gender;
-            if (priaSelected.isSelected()) {
-                gender = 1;
-            } else {
-                gender = 0;
-            }
+            String patientName = InputTextName.getText();
             LocalDate localDate = InputBirthDate.getValue();
-            Date date = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
+            Date date = java.sql.Date.valueOf(localDate);
+            int patientGender = priaSelected.isSelected() ? 1 : 0;
+            int clinic = clinicDropdownOption.getSelectionModel().getSelectedIndex() + 1;
+            PatientDAO patient = new PatientDAO();
+            patient.addPatient(patientName, patientGender, date, clinic);
 
-            String dropdownValue = clinicDropdownOption.getValue();
-            int clinic;
-            switch (dropdownValue) {
-                case "Klinik Anak":
-                    clinic = 1;
-                    break;
-                case "Klinik Gigi":
-                    clinic = 2;
-                    break;
-                case "Klinik Jantung":
-                    clinic = 3;
-                    break;
-                default:
-                    clinic = 0;
-            }
-            // String patientName, int patientGender, Date patientBirthdate, int clinic, int diagnoseStatus
-            PatientDAO patient = new PatientDAO(InputTextName.getText(), gender, date , clinic , 0 );
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("SUCCESS!");
-            alert.setContentText("Data patient was succesfully added to database");
+            alert.setTitle("SUCCES!!");
+            alert.setContentText("Patient data was succesfully added to database");
             alert.show();
         }
     }
 
-    public void setPatient(PatientDAO patient) {
-        InputTextName.setText(patient.getPatientName());
-        Date date = patient.getPatientBirthdate();
-        LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        InputBirthDate.setValue(localDate);
-        int genderValue = patient.getPatientGender();
-        if (genderValue == 0) {
-            priaSelected.isSelected();
-        }else {
-            wanitaSelected.isSelected();
-        }
-        int clinicValue = patient.getClinic();
-        switch (clinicValue) {
-            case 1:
-                clinicDropdownOption.setValue("Klinik Anak");
-                break;
-            case 2:
-                clinicDropdownOption.setValue("Klinik Gigi");
-                break;
-            case 3:
-                clinicDropdownOption.setValue("Klinik Jantung");
-                break;
-        }
-
-
-    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

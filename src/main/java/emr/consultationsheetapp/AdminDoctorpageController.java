@@ -10,10 +10,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
@@ -21,6 +20,7 @@ import javafx.util.Duration;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class AdminDoctorpageController implements Initializable {
@@ -48,7 +48,7 @@ public class AdminDoctorpageController implements Initializable {
     private TableColumn<UserDAO, Integer> listKlinik;
 
     @FXML
-    private TableColumn<UserDAO, String> ListActionAssesmen;
+    private TableColumn<UserDAO, Void> ListActionAssesmen;
 
 
 
@@ -99,7 +99,7 @@ public class AdminDoctorpageController implements Initializable {
         ParallelTransition transition = new ParallelTransition(fadeOut, fadeIn);
         transition.setOnFinished(e -> {
             stage.setScene(scene);
-            stage.setTitle("e-ConsultationSheet");
+            stage.setTitle("Admin Patient e-ConsultationSheet");
         });
         transition.play();
     }
@@ -136,5 +136,41 @@ public class AdminDoctorpageController implements Initializable {
         listNomorTabelAssesmen.setCellValueFactory(new PropertyValueFactory<>("userId"));
         listUsername.setCellValueFactory(new PropertyValueFactory<>("username"));
         listKlinik.setCellValueFactory(new PropertyValueFactory<>("clinic"));
+
+        ListActionAssesmen.setCellFactory(param -> new TableCell<>() {
+            private final Button editButton = new Button("Edit");
+            private final Button deleteButton = new Button("Delete");
+
+            {
+                editButton.setOnAction(event -> {
+                    UserDAO user = getTableView().getItems().get(getIndex());
+                    // Tambahkan logika untuk melakukan edit data
+                });
+
+                deleteButton.setOnAction(event -> {
+                    UserDAO user = getTableView().getItems().get(getIndex());
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setTitle("Confirmation");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Are you sure you want to delete this data?");
+
+                    Optional<ButtonType> result = alert.showAndWait();
+                    if (result.isPresent() && result.get() == ButtonType.OK) {
+                        user.deleteUser();
+                    }
+                });
+            }
+
+            @Override
+            protected void updateItem(Void item, boolean empty) {
+                super.updateItem(item, empty);
+
+                if (empty) {
+                    setGraphic(null);
+                } else {
+                    setGraphic(new HBox(editButton, deleteButton));
+                }
+            }
+        });
     }
 }

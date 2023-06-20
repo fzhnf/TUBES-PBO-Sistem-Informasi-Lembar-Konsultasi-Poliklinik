@@ -38,6 +38,12 @@ public class NewUserDoctorController implements Initializable {
             alert.setContentText("Please input doctor data");
             alert.show();
         } else {
+            String username = InputTextName.getText();
+            String password = InputTextPassword.getText();
+            int clinic = clinicDropdownOption.getSelectionModel().getSelectedIndex() + 1;
+            UserDAO user = new UserDAO();
+            user.createUser(username, password, clinic);
+
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("SUCCES!!");
             alert.setContentText("Doctor data was succesfully added to database");
