@@ -60,10 +60,53 @@ public class NewAssesmentWindowController implements Initializable {
         }
     }
 
+    private PatientDAO patient;
+
+    public void setPatient(PatientDAO patient) {
+        this.patient = patient;
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ObservableList<String> List = FXCollections.observableArrayList("Klinik Anak", "Klinik Gigi", "Klinik Jantung");
         clinicDropdownOption.setItems(List);
 
+        if (patient != null) {
+            InputTextName.setText(patient.getPatientName());
+            InputBirthDate.setValue(patient.getPatientBirthdate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+
+            int gender = patient.getPatientGender();
+            if (gender == 1) {
+                priaSelected.setSelected(true);
+            } else if (gender == 2) {
+                wanitaSelected.setSelected(true);
+            }
+
+            // Misalkan kita memiliki data klinik dalam format array atau list
+            clinicDropdownOption.getItems().addAll("Klinik A", "Klinik B", "Klinik C");
+
+            int clinic = patient.getClinic();
+            if (clinic >= 1 && clinic <= clinicDropdownOption.getItems().size()) {
+                clinicDropdownOption.getSelectionModel().select(clinic - 1);
+            }
+        }
     }
+    @FXML
+    private void updatePatient() {
+        String name = InputTextName.getText();
+        Date birthdate = java.sql.Date.valueOf(InputBirthDate.getValue());
+        int gender = priaSelected.isSelected() ? 1 : 2;
+        int clinicIndex = clinicDropdownOption.getSelectionModel().getSelectedIndex();
+        int clinic = clinicIndex + 1;
+
+        patient.setPatientName(name);
+        patient.setPatientBirthdate(birthdate);
+        patient.setPatientGender(gender);
+        patient.setClinic(clinic);
+
+        // Panggil metode updatePatient() dari PatientDAO untuk mengupdate data pasien ke database
+        patient.updatePatient();
+
+        // Tambahkan logika lain yang Anda perlukan setelah mengupdate data pasien
+    }
+
 }

@@ -60,7 +60,7 @@
    <center>
       <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <center>
-            <TableView prefHeight="400.0" prefWidth="583.0" BorderPane.alignment="CENTER">
+            <TableView fx:id="TabelAssesmentLama" prefHeight="400.0" prefWidth="583.0" BorderPane.alignment="CENTER">
                <columns>
                   <TableColumn fx:id="listNomorTabelAssesmenLama" maxWidth="33.0" prefWidth="32.0" resizable="false" text="No" />
                   <TableColumn fx:id="listTglAssesmentTabelAssesmenLama" prefWidth="137.0" text="Assesment Date" />

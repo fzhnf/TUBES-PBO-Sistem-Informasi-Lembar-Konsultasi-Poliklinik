@@ -2,25 +2,30 @@ package emr.consultationsheetapp;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.ParallelTransition;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.ResourceBundle;
 
-public class DoctorAssesmentController {
+public class DoctorAssesmentController implements Initializable {
 
-    @FXML
-    private TableColumn<?, ?> ListActionAssesmenBaru;
 
-    @FXML
-    private TableColumn<?, ?> ListActionAssesmenLama;
 
     @FXML
     private Button changeSceneTindakLanjutButton;
@@ -29,34 +34,25 @@ public class DoctorAssesmentController {
     private Button changeSceneToLembarKonsultasiButton;
 
     @FXML
-    private TableColumn<?, ?> listJenisKelaminTabelAssesmenBaru;
+    private TableView<ConsultationSheetDAO> TabelAssesmentBaru;
 
     @FXML
-    private TableColumn<?, ?> listJenisKelaminTabelAssesmenLama;
+    private TableColumn<ConsultationSheetDAO, Integer> listNomorTabelAssesmenBaru;
 
     @FXML
-    private TableColumn<?, ?> listNamaTabelAssesmenBaru;
+    private TableColumn<ConsultationSheetDAO, Date> listTglAssesmentTabelAssesmenBaru;
 
     @FXML
-    private TableColumn<?, ?> listNamaTabelAssesmenLama;
+    private TableColumn<ConsultationSheetDAO, String> listNamaTabelAssesmenBaru;
 
     @FXML
-    private TableColumn<?, ?> listNomorTabelAssesmenBaru;
+    private TableColumn<ConsultationSheetDAO, Integer> listJenisKelaminTabelAssesmenBaru;
 
     @FXML
-    private TableColumn<?, ?> listNomorTabelAssesmenLama;
+    private TableColumn<ConsultationSheetDAO, Date> listTglLahirTabelAssesmenBaru;
 
     @FXML
-    private TableColumn<?, ?> listTglAssesmentTabelAssesmenBaru;
-
-    @FXML
-    private TableColumn<?, ?> listTglAssesmentTabelAssesmenLama;
-
-    @FXML
-    private TableColumn<?, ?> listTglLahirTabelAssesmenBaru;
-
-    @FXML
-    private TableColumn<?, ?> listTglLahirTabelAssesmenLama;
+    private TableColumn<ConsultationSheetDAO, Void> ListActionAssesmenBaru;
 
     @FXML
     private Button logoutButton;
@@ -110,4 +106,19 @@ public class DoctorAssesmentController {
         transition.play();
     }
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        ConsultationSheetDAO sheet = new ConsultationSheetDAO();
+        ArrayList<ConsultationSheetDAO> sheets = sheet.getAllConsultationSheet();
+
+        ObservableList<ConsultationSheetDAO> dataSheet = FXCollections.observableArrayList(sheets);
+
+        TabelAssesmentBaru.setItems(dataSheet);
+        listNomorTabelAssesmenBaru.setCellValueFactory(new PropertyValueFactory<>("patientId"));
+        listTglAssesmentTabelAssesmenBaru.setCellValueFactory(new PropertyValueFactory<>("patientName"));
+        listNamaTabelAssesmenBaru.setCellValueFactory(new PropertyValueFactory<>("patientBirthdate"));
+        listJenisKelaminTabelAssesmenBaru.setCellValueFactory(new PropertyValueFactory<>("clinic"));
+        listTglLahirTabelAssesmenBaru.setCellValueFactory(new PropertyValueFactory<>("patientGender"));
+
+    }
 }

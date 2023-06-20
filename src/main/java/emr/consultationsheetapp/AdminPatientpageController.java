@@ -155,25 +155,24 @@ public class AdminPatientpageController implements Initializable {
             {
                 editButton.setOnAction(event -> {
                     PatientDAO selectedPatient = getTableView().getItems().get(getIndex());
+                    try {
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("newassesment-window.fxml"));
+                        Parent root = loader.load();
+                        NewAssesmentWindowController controller = loader.getController();
+                        controller.setPatient(selectedPatient);
 
-//                    try {
-                        // Membuka halaman edit pasien dengan mengirim data pasien yang dipilih
-//                        FXMLLoader loader = new FXMLLoader(getClass().getResource("newassesmentwindow-window.fxml"));
-//                        Parent root = loader.load();
-//                        NewAssesmentWindowController controller = loader.getController();
-//                        controller.save(selectedPatient);
-//                        Scene scene = new Scene(root);
-//                        Stage stage = new Stage();
-//                        stage.setScene(scene);
-//                        stage.setTitle("Edit Patient");
-//                        stage.initStyle(StageStyle.UTILITY);
-//                        stage.showAndWait();
+                        Scene scene = new Scene(root);
+                        Stage stage = new Stage();
+                        stage.setScene(scene);
+                        stage.setTitle("Edit Patient");
+                        stage.initStyle(StageStyle.UTILITY);
+                        stage.showAndWait();
 
                         // Setelah dialog edit ditutup, perbarui tabel dengan data yang sudah diubah
                         refresh(null);
-//                    } catch (IOException e) {
-//                        e.printStackTrace();
-//                    }
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 });
 
                 deleteButton.setOnAction(event -> {

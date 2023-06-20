@@ -134,18 +134,4 @@ public class UserDAO extends UserModel {
             throw new RuntimeException(e);
         }
     }
-    public static void updatePatient(PatientDAO patient) throws SQLException {
-        try (Connection connectDB = database.getConnection()) {
-            String query = "UPDATE patient_table SET patient_name = ?, patient_gender = ?, patient_birthdate = ?, clinic = ? WHERE patient_id = ?";
-            PreparedStatement statement = connectDB.prepareStatement(query);
-            statement.setString(1, patient.getPatientName());
-            statement.setInt(2, patient.getPatientGender());
-            statement.setDate(3, new java.sql.Date(patient.getPatientBirthdate().getTime()));
-            statement.setInt(4, patient.getClinic());
-            statement.setInt(5, patient.getPatientId());
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            throw e;
-        }
-    }
 }

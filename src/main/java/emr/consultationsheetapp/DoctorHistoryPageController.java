@@ -9,36 +9,42 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
+import java.util.Date;
 
 public class DoctorHistoryPageController {
 
+
     @FXML
-    private TableColumn<?, ?> ListActionAssesmenLama;
+    private Button changeSceneTindakLanjut;
 
     @FXML
     private Button changeSceneTindakLanjutButton;
 
     @FXML
-    private Button changeSceneToLembarKonsultasiButton;
+    private TableView<ConsultationSheetDAO> TabelAssesmentLama;
 
     @FXML
-    private TableColumn<?, ?> listJenisKelaminTabelAssesmenLama;
+    private TableColumn<ConsultationSheetDAO, Integer> listNomorTabelAssesmenLama;
 
     @FXML
-    private TableColumn<?, ?> listNamaTabelAssesmenLama;
+    private TableColumn<ConsultationSheetDAO, Date> listTglAssesmentTabelAssesmenLama;
 
     @FXML
-    private TableColumn<?, ?> listNomorTabelAssesmenLama;
+    private TableColumn<ConsultationSheetDAO, String> listNamaTabelAssesmenLama;
 
     @FXML
-    private TableColumn<?, ?> listTglAssesmentTabelAssesmenLama;
+    private TableColumn<ConsultationSheetDAO, Integer> listJenisKelaminTabelAssesmenLama;
 
     @FXML
-    private TableColumn<?, ?> listTglLahirTabelAssesmenLama;
+    private TableColumn<ConsultationSheetDAO, Date> listTglLahirTabelAssesmenLama;
+
+    @FXML
+    private TableColumn<ConsultationSheetDAO, Void> ListActionAssesmenLama;
 
     @FXML
     private Button logoutButton;

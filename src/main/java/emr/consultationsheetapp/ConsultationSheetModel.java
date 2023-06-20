@@ -3,7 +3,6 @@ package emr.consultationsheetapp;
 import java.util.Date;
 
 public class ConsultationSheetModel {
-    private int consultationSheetId;
     private Date createdAt;
     private int patientId;
     private int bloodPressuremmHg;
@@ -14,26 +13,22 @@ public class ConsultationSheetModel {
     private String diagnosisScript;
     private String patientEducation;
 
-    public ConsultationSheetModel(int consultationSheetId, Date createdAt, int patientId, int bloodPressuremmHg, int heartRateBeatPerMinute, int temperateCelcius, int feelingRate, String physicalExaminationScript, String diagnosisScript, String patientEducation) {
-        this.consultationSheetId = consultationSheetId;
+    public ConsultationSheetModel(Date createdAt, int patientId, int bloodPressuremmHg, int heartRateBeatPerMinute, int temperateCelcius, int feelingRate, String physicalExaminationScript, String diagnosisScript, String patientEducation) {
         this.createdAt = createdAt;
         this.patientId = patientId;
         this.bloodPressuremmHg = bloodPressuremmHg;
         this.heartRateBeatPerMinute = heartRateBeatPerMinute;
         this.temperateCelcius = temperateCelcius;
-        FeelingRate = feelingRate;
+        this.FeelingRate = feelingRate;
         this.physicalExaminationScript = physicalExaminationScript;
         this.diagnosisScript = diagnosisScript;
         this.patientEducation = patientEducation;
     }
 
-    public int getConsultationSheetId() {
-        return consultationSheetId;
+    public ConsultationSheetModel() {
+
     }
 
-    public void setConsultationSheetId(int consultationSheetId) {
-        this.consultationSheetId = consultationSheetId;
-    }
 
     public Date getCreatedAt() {
         return createdAt;
@@ -110,8 +105,7 @@ public class ConsultationSheetModel {
     @Override
     public String toString() {
         return "ConsultationSheetModel{" +
-                "consultationSheetId=" + consultationSheetId +
-                ", createdAt=" + createdAt +
+                "createdAt=" + createdAt +
                 ", patientId=" + patientId +
                 ", bloodPressuremmHg=" + bloodPressuremmHg +
                 ", heartRateBeatPerMinute=" + heartRateBeatPerMinute +
