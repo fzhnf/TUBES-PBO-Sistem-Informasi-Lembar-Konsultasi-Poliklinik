@@ -68,7 +68,8 @@ public class AdminPatientpageController implements Initializable {
     @FXML
     public void refresh(ActionEvent event) {
         PatientDAO patientDAO = new PatientDAO();
-        ArrayList<PatientDAO> patients = patientDAO.getAllPatients();
+        ArrayList<PatientDAO> patients;
+        patients = patientDAO.getAllPatients();
 
         ObservableList<PatientDAO> dataPatient = FXCollections.observableArrayList(patients);
 
@@ -81,7 +82,7 @@ public class AdminPatientpageController implements Initializable {
         Scene scene = new Scene(parent);
         Stage stage = new Stage();
         stage.setScene(scene);
-        stage.setTitle("e-ConsultationSheet");
+        stage.setTitle("Add Patient");
         stage.initStyle(StageStyle.UTILITY);
         stage.show();
     }
@@ -103,7 +104,7 @@ public class AdminPatientpageController implements Initializable {
         ParallelTransition transition = new ParallelTransition(fadeOut, fadeIn);
         transition.setOnFinished(e -> {
             stage.setScene(scene);
-            stage.setTitle("e-ConsultationSheet");
+            stage.setTitle("AdminDoctor e-ConsultationSheet");
         });
         transition.play();
     }
@@ -131,11 +132,14 @@ public class AdminPatientpageController implements Initializable {
     }
 
 
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         PatientDAO patient = new PatientDAO();
         ArrayList<PatientDAO> patients = patient.getAllPatients();
+
         ObservableList<PatientDAO> dataPatient = FXCollections.observableArrayList(patients);
+
         patientTable.setItems(dataPatient);
         listNomorTabelAssesmen.setCellValueFactory(new PropertyValueFactory<>("patientId"));
         listNamaPasien.setCellValueFactory(new PropertyValueFactory<>("patientName"));
@@ -143,14 +147,33 @@ public class AdminPatientpageController implements Initializable {
         listKlinik.setCellValueFactory(new PropertyValueFactory<>("clinic"));
         listGender.setCellValueFactory(new PropertyValueFactory<>("patientGender"));
 
+
         ListActionAssesmen.setCellFactory(param -> new TableCell<>() {
             private final Button editButton = new Button("Edit");
             private final Button deleteButton = new Button("Delete");
 
             {
                 editButton.setOnAction(event -> {
-                    PatientDAO patient = getTableView().getItems().get(getIndex());
-                    // Tambahkan logika untuk melakukan edit data
+                    PatientDAO selectedPatient = getTableView().getItems().get(getIndex());
+
+//                    try {
+                        // Membuka halaman edit pasien dengan mengirim data pasien yang dipilih
+//                        FXMLLoader loader = new FXMLLoader(getClass().getResource("newassesmentwindow-window.fxml"));
+//                        Parent root = loader.load();
+//                        NewAssesmentWindowController controller = loader.getController();
+//                        controller.save(selectedPatient);
+//                        Scene scene = new Scene(root);
+//                        Stage stage = new Stage();
+//                        stage.setScene(scene);
+//                        stage.setTitle("Edit Patient");
+//                        stage.initStyle(StageStyle.UTILITY);
+//                        stage.showAndWait();
+
+                        // Setelah dialog edit ditutup, perbarui tabel dengan data yang sudah diubah
+                        refresh(null);
+//                    } catch (IOException e) {
+//                        e.printStackTrace();
+//                    }
                 });
 
                 deleteButton.setOnAction(event -> {
@@ -163,7 +186,7 @@ public class AdminPatientpageController implements Initializable {
                     Optional<ButtonType> result = alert.showAndWait();
                     if (result.isPresent() && result.get() == ButtonType.OK) {
                         patient.deletePatient();
-                        // Tambahkan logika tambahan yang diperlukan setelah penghapusan data
+
                     }
                 });
             }

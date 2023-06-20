@@ -77,7 +77,7 @@ public class AdminDoctorpageController implements Initializable {
         Scene scene = new Scene(parent);
         Stage stage = new Stage();
         stage.setScene(scene);
-        stage.setTitle("e-ConsultationSheet");
+        stage.setTitle("Add Doctor");
         stage.initStyle(StageStyle.UTILITY);
         stage.show();
     }
@@ -99,7 +99,7 @@ public class AdminDoctorpageController implements Initializable {
         ParallelTransition transition = new ParallelTransition(fadeOut, fadeIn);
         transition.setOnFinished(e -> {
             stage.setScene(scene);
-            stage.setTitle("Admin Patient e-ConsultationSheet");
+            stage.setTitle("AdminPatient e-ConsultationSheet");
         });
         transition.play();
     }

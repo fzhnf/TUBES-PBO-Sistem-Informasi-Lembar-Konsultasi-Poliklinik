@@ -195,4 +195,21 @@ public class PatientDAO extends PatientModel {
             throw new RuntimeException(e);
         }
     }
+
+    public void updatePatient() {
+        try (Connection connectDB = database.getConnection()) {
+            String query = "UPDATE patient_table SET patient_name = ?, patient_gender = ?, patient_birthdate = ?, clinic = ?, diagnose = ? WHERE patient_id = ?";
+            PreparedStatement statement = connectDB.prepareStatement(query);
+            statement.setString(1, this.patientName);
+            statement.setInt(2, this.patientGender);
+            statement.setDate(3, new java.sql.Date(this.patientBirthdate.getTime()));
+            statement.setInt(4, this.clinic);
+            statement.setInt(5, this.diagnoseStatus);
+            statement.setInt(6, this.patientId);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }

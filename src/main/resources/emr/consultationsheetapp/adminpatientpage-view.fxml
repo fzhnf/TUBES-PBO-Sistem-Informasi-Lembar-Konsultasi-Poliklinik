@@ -15,22 +15,11 @@
    <left>
       <AnchorPane prefHeight="600.0" prefWidth="150.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="changeScenetoAddNewPatientButton" layoutX="14.0" layoutY="167.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="123.0" style="-fx-background-color: #a7def2; -fx-background-radius: 100;" text="Patient" textFill="#1481bb">
-               <font>
-                  <Font size="13.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button fx:id="logoutButton" layoutX="14.0" layoutY="337.0" mnemonicParsing="false" onAction="#logout" prefHeight="15.0" prefWidth="123.0" style="-fx-background-color: #a7def2; -fx-background-radius: 100;" text="Logout" textFill="#1481bb">
-               <font>
-                  <Font size="13.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
+            <ImageView fitHeight="86.0" fitWidth="150.0" layoutX="1.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" style="-fx-blend-mode: #1790d0;">
+               <image>
+                  <Image url="@electronic-health-record.png" />
+               </image>
+            </ImageView>
             <Label layoutX="8.0" layoutY="113.0" prefHeight="26.0" prefWidth="135.0" text="e-MedicalRecords" textFill="#1481bb">
                <font>
                   <Font size="17.0" />
@@ -41,12 +30,23 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <ImageView fitHeight="86.0" fitWidth="150.0" layoutX="1.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" style="-fx-blend-mode: #1790d0;">
-               <image>
-                  <Image url="@electronic-health-record.png" />
-               </image>
-            </ImageView>
+            <Button fx:id="changeScenetoAddNewPatientButton" layoutX="14.0" layoutY="167.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="123.0" style="-fx-background-color: #a7def2; -fx-background-radius: 100;" text="Patient" textFill="#1481bb">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
             <Button fx:id="changeScenetoAdministrasiDokterButton" layoutX="14.0" layoutY="200.0" mnemonicParsing="false" onAction="#changeScenetoAdministrasiDokter" prefHeight="27.0" prefWidth="123.0" style="-fx-background-color: #a7def2; -fx-background-radius: 100;" text="Doctor" textFill="#1481bb">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="logoutButton" layoutX="14.0" layoutY="337.0" mnemonicParsing="false" onAction="#logout" prefHeight="15.0" prefWidth="123.0" style="-fx-background-color: #a7def2; -fx-background-radius: 100;" text="Logout" textFill="#1481bb">
                <font>
                   <Font size="13.0" />
                </font>
@@ -74,11 +74,11 @@
          <top>
             <AnchorPane prefHeight="35.0" prefWidth="599.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="addPatientButton" layoutX="62.0" layoutY="5.0" mnemonicParsing="false" onAction="#addPatient" style="-fx-background-color: #a7def2; -fx-background-radius: 100;" text="AddPatient">
+                  <Button fx:id="refreshButton" layoutY="5.0" mnemonicParsing="false" onAction="#refresh" style="-fx-background-color: #a7def2; -fx-background-radius: 100;" text="Refresh">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor></Button>
-                  <Button fx:id="refreshButton" layoutY="5.0" mnemonicParsing="false" onAction="#refresh" style="-fx-background-color: #a7def2; -fx-background-radius: 100;" text="Refresh">
+                  <Button fx:id="addPatientButton" layoutX="62.0" layoutY="5.0" mnemonicParsing="false" onAction="#addPatient" style="-fx-background-color: #a7def2; -fx-background-radius: 100;" text="AddPatient">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor></Button>

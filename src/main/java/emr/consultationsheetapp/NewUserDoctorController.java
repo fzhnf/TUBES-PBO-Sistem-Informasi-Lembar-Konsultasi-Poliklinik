@@ -9,6 +9,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -48,6 +49,9 @@ public class NewUserDoctorController implements Initializable {
             alert.setTitle("SUCCES!!");
             alert.setContentText("Doctor data was succesfully added to database");
             alert.show();
+
+            Stage stage = (Stage) AddNewUserButton.getScene().getWindow();
+            stage.close();
         }
     }
     @Override
