@@ -7,7 +7,7 @@ public class UserDAO extends UserModel {
     static DBUtil database = new DBUtil();
     int userId;
 
-    public UserDAO(String username, String password, int clinic, int userId) {
+    public UserDAO(String username, String password, int clinic, int userID) {
         super(username, password, clinic);
         this.userId = userId;
     }
@@ -29,7 +29,7 @@ public class UserDAO extends UserModel {
             return 0;
         }
         try (Connection connectDB = database.getConnection()) {
-            String query = "SELECT user_id FROM user_table WHERE username = '" + this.username + "' AND password ='" + this.password + "'";
+            String query = "SELECT user_id FROM user_table WHERE user_name = '" + this.username + "' AND user_password ='" + this.password + "'";
             Statement statement = connectDB.createStatement();
             ResultSet queryResult = statement.executeQuery(query);
             if (queryResult.next()) {
@@ -56,7 +56,7 @@ public class UserDAO extends UserModel {
 
     public int getClinic() {
         try (Connection connectDB = database.getConnection()) {
-            String query = "SELECT clinic FROM user_table WHERE user_id = '" + getUserId() + "'";
+            String query = "SELECT user_clinic FROM user_table WHERE user_id = '" + getUserId() + "'";
             Statement statement = connectDB.createStatement();
             ResultSet queryResult = statement.executeQuery(query);
             if (queryResult.next()) {
@@ -81,7 +81,7 @@ public class UserDAO extends UserModel {
     @Override
     public void setPassword(String password) {
         try (Connection connectDB = database.getConnection()) {
-            String query = "UPDATE user_table SET password = '" + password + "' WHERE user_id = '" + getUserId() + "'";
+            String query = "UPDATE user_table SET user_password = '" + password + "' WHERE user_id = '" + getUserId() + "'";
             Statement statement = connectDB.createStatement();
             statement.executeUpdate(query);
         } catch (SQLException e) {
@@ -91,7 +91,7 @@ public class UserDAO extends UserModel {
 
     public void setClinic(String clinic) {
         try (Connection connectDB = database.getConnection()) {
-            String query = "UPDATE user_table SET clinic = '" + clinic + "' WHERE user_id = '" + getUserId() + "'";
+            String query = "UPDATE user_table SET user_clinic = '" + clinic + "' WHERE user_id = '" + getUserId() + "'";
             Statement statement = connectDB.createStatement();
             statement.executeUpdate(query);
         } catch (SQLException e) {
@@ -100,7 +100,7 @@ public class UserDAO extends UserModel {
     }
     public void createUser(String username, String password, int clinic) {
         try (Connection connectDB = database.getConnection()) {
-            String query = "INSERT INTO user_table (username, password, clinic) VALUES ( ?, ?, ?)";
+            String query = "INSERT INTO user_table (user_name, user_password, user_clinic) VALUES ( ?, ?, ?)";
             PreparedStatement statement = connectDB.prepareStatement(query);
             statement.setString(1, username);
             statement.setString(2, password);
@@ -127,7 +127,7 @@ public class UserDAO extends UserModel {
             ResultSet queryResult = statement.executeQuery(query);
             ArrayList<UserDAO> users = new ArrayList<>();
             while (queryResult.next()) {
-                users.add(new UserDAO(queryResult.getString("username"), queryResult.getString("password"), queryResult.getInt("clinic")));
+                users.add(new UserDAO(queryResult.getString("user_name"), queryResult.getString("user_password"), queryResult.getInt("user_clinic")));
             }
             return users;
         } catch (SQLException e) {

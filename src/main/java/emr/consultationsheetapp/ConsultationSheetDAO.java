@@ -16,11 +16,11 @@ public class ConsultationSheetDAO extends ConsultationSheetModel {
     public ConsultationSheetDAO() {
         super();
     }
-    public void createConsultationDAO(int patientId, int bloodPressuremmHg, int heartRateBeatPerMinute, int temperateCelcius, int feelingRate, String physicalExaminationScript, String diagnosisScript, String patientEducation) {
+    public void createConsultationDAO(int assesmentId, int bloodPressuremmHg, int heartRateBeatPerMinute, int temperateCelcius, int feelingRate, String physicalExaminationScript, String diagnosisScript, String patientEducation) {
         try (Connection connectDB = database.getConnection()) {
-            String query = "INSERT INTO consultation_sheet_table (patientId, bloodPressuremmHg, heartRateBeatPerMinute, temperateCelcius, feelingRate, physicalExaminationScript, diagnosisScript, patientEducation) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?)";
+            String query = "INSERT INTO consultation_sheet_table (assesment_id, blood_pressure, heart_rate, temperature, feeling_rate, physical_examination, diagnosis_analysis, patient_education) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement statement = connectDB.prepareStatement(query);
-            statement.setInt(1, patientId);
+            statement.setInt(1, assesmentId);
             statement.setInt(2, bloodPressuremmHg);
             statement.setInt(3, heartRateBeatPerMinute);
             statement.setInt(4, temperateCelcius);
@@ -35,7 +35,7 @@ public class ConsultationSheetDAO extends ConsultationSheetModel {
     }
     public void deleteConsultationSheet() {
         try (Connection connectDB = database.getConnection()) {
-            String query = "DELETE FROM consultation_sheet_table WHERE patient_id = '" + getPatientId() + "'";
+            String query = "DELETE FROM consultation_sheet_table WHERE assesment_id = '" + getPatientId() + "'";
             Statement statement = connectDB.createStatement();
             statement.executeUpdate(query);
         } catch (SQLException e) {

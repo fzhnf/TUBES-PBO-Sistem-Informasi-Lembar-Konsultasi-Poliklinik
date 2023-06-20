@@ -23,7 +23,7 @@ public class PatientDAO extends PatientModel {
 
     public int getPatientId() {
         try (Connection connectDB = database.getConnection()) {
-            String query = "SELECT patient_id FROM patient_table WHERE patient_name  = '" + this.patientName +"' AND patient_birthdate = '" + this.patientBirthdate +"' AND patient_gender = '" + this.patientGender + "' AND clinic = '" + this.clinic + "' AND diagnose = '" + this.diagnoseStatus + "'";
+            String query = "SELECT assesment_id FROM patient_table WHERE patient_name  = '" + this.patientName +"' AND patient_birthdate = '" + this.patientBirthdate +"' AND patient_gender = '" + this.patientGender + "' AND clinic = '" + this.clinic + "' AND diagnose = '" + this.diagnoseStatus + "'";
             Statement statement = connectDB.createStatement();
             ResultSet queryResult = statement.executeQuery(query);
             if (queryResult.next()) {
@@ -36,7 +36,7 @@ public class PatientDAO extends PatientModel {
     }
     public String getPatientName() {
         try (Connection connectDB = database.getConnection()) {
-            String query = "SELECT patient_name FROM patient_table WHERE patient_id = '" + getPatientId() + "'";
+            String query = "SELECT patient_name FROM patient_table WHERE assesment_id = '" + getPatientId() + "'";
             Statement statement = connectDB.createStatement();
             ResultSet queryResult = statement.executeQuery(query);
             if (queryResult.next()) {
@@ -51,7 +51,7 @@ public class PatientDAO extends PatientModel {
     @Override
     public void setPatientName(String patientName) {
         try (Connection connectDB = database.getConnection()) {
-            String query = "UPDATE patient_table SET patient_name = '" + patientName + "' WHERE patient_id = '" + getPatientId() + "'";
+            String query = "UPDATE patient_table SET patient_name = '" + patientName + "' WHERE assesment_id = '" + getPatientId() + "'";
             Statement statement = connectDB.createStatement();
             statement.executeUpdate(query);
         } catch (SQLException e) {
@@ -61,7 +61,7 @@ public class PatientDAO extends PatientModel {
 
     public int getPatientGender() {
         try (Connection connectDB = database.getConnection()) {
-            String query = "SELECT patient_gender FROM patient_table WHERE patient_id = '" + getPatientId() + "'";
+            String query = "SELECT patient_gender FROM patient_table WHERE assesment_id = '" + getPatientId() + "'";
             Statement statement = connectDB.createStatement();
             ResultSet queryResult = statement.executeQuery(query);
             if (queryResult.next()) {
@@ -75,7 +75,7 @@ public class PatientDAO extends PatientModel {
 
     public void setPatientGender(int patientGender) {
         try (Connection connectDB = database.getConnection()) {
-        String query = "UPDATE patient_table SET patient_gender = '" + patientGender + "' WHERE patient_id = '" + getPatientId() + "'";
+        String query = "UPDATE patient_table SET patient_gender = '" + patientGender + "' WHERE assesment_id = '" + getPatientId() + "'";
         Statement statement = connectDB.createStatement();
         statement.executeUpdate(query);
         } catch (SQLException e) {
@@ -85,7 +85,7 @@ public class PatientDAO extends PatientModel {
 
     public Date getPatientBirthdate() {
         try (Connection connectDB = database.getConnection()) {
-            String query = "SELECT patient_birthdate FROM patient_table WHERE patient_id = '" + getPatientId() + "'";
+            String query = "SELECT patient_birthdate FROM patient_table WHERE assesment_id = '" + getPatientId() + "'";
             Statement statement = connectDB.createStatement();
             ResultSet queryResult = statement.executeQuery(query);
             if (queryResult.next()) {
@@ -99,7 +99,7 @@ public class PatientDAO extends PatientModel {
 
     public void setPatientBirthdate(Date patientBirthdate) {
         try (Connection connectDB = database.getConnection()) {
-            String query = "UPDATE patient_table SET patient_birthdate = '" + patientBirthdate + "' WHERE patient_id = '" + getPatientId() + "'";
+            String query = "UPDATE patient_table SET patient_birthdate = '" + patientBirthdate + "' WHERE assesment_id = '" + getPatientId() + "'";
             Statement statement = connectDB.createStatement();
             statement.executeUpdate(query);
         } catch (SQLException e) {
@@ -110,7 +110,7 @@ public class PatientDAO extends PatientModel {
     @Override
     public int getdiagnoseStatus() {
         try (Connection connectDB = database.getConnection()) {
-            String query = "SELECT diagnose FROM patient_table WHERE patient_id = '" + getPatientId() + "'";
+            String query = "SELECT assesment_status FROM patient_table WHERE assesment_id = '" + getPatientId() + "'";
             Statement statement = connectDB.createStatement();
             ResultSet queryResult = statement.executeQuery(query);
             if (queryResult.next()) {
@@ -125,7 +125,7 @@ public class PatientDAO extends PatientModel {
     @Override
     public void setdiagnoseStatus(int diagnoseStatus) {
         try (Connection connectDB = database.getConnection()) {
-            String query = "UPDATE patient_table SET diagnose = '" + diagnoseStatus + "' WHERE patient_id = '" + getPatientId() + "'";
+            String query = "UPDATE patient_table SET assesment_status = '" + diagnoseStatus + "' WHERE assesment_id = '" + getPatientId() + "'";
             Statement statement = connectDB.createStatement();
             statement.executeUpdate(query);
         } catch (SQLException e) {
@@ -134,7 +134,7 @@ public class PatientDAO extends PatientModel {
     }
     public int getClinic() {
         try (Connection connectDB = database.getConnection()) {
-            String query = "SELECT clinic FROM patient_table WHERE patient_id = '" + getPatientId() + "'";
+            String query = "SELECT patient_clinic FROM patient_table WHERE assesment_id = '" + getPatientId() + "'";
             Statement statement = connectDB.createStatement();
             ResultSet queryResult = statement.executeQuery(query);
             if (queryResult.next()) {
@@ -148,7 +148,7 @@ public class PatientDAO extends PatientModel {
 
     public void setClinic(int clinic) {
         try (Connection connectDB = database.getConnection()) {
-            String query = "UPDATE patient_table SET clinic = '" + clinic + "' WHERE patient_id = '" + getPatientId() + "'";
+            String query = "UPDATE patient_table SET patient_clinic = '" + clinic + "' WHERE assesment_id = '" + getPatientId() + "'";
             Statement statement = connectDB.createStatement();
             statement.executeUpdate(query);
         } catch (SQLException e) {
@@ -157,7 +157,7 @@ public class PatientDAO extends PatientModel {
     }
     public void addPatient(String patientName, int patientGender, Date patientBirthdate, int clinic) {
         try (Connection connectDB = database.getConnection()) {
-            String query = "INSERT INTO patient_table (patient_name, patient_gender, patient_birthdate, clinic, diagnose) VALUES ( ?, ?, ?, ?, ?)";
+            String query = "INSERT INTO patient_table (patient_name, patient_gender, patient_birthdate, patient_clinic, assesment_status) VALUES ( ?, ?, ?, ?, ?)";
             PreparedStatement statement = connectDB.prepareStatement(query);
             statement.setString(1, patientName);
             statement.setInt(2, patientGender);
@@ -172,7 +172,7 @@ public class PatientDAO extends PatientModel {
 
     public void deletePatient() {
         try (Connection connectDB = database.getConnection()) {
-            String query = "DELETE FROM patient_table WHERE patient_id = '" + getPatientId() + "'";
+            String query = "DELETE FROM patient_table WHERE assesment_id = '" + getPatientId() + "'";
             Statement statement = connectDB.createStatement();
             statement.executeUpdate(query);
         } catch (SQLException e) {
@@ -198,7 +198,7 @@ public class PatientDAO extends PatientModel {
 
     public void updatePatient() {
         try (Connection connectDB = database.getConnection()) {
-            String query = "UPDATE patient_table SET patient_name = ?, patient_gender = ?, patient_birthdate = ?, clinic = ?, diagnose = ? WHERE patient_id = ?";
+            String query = "UPDATE patient_table SET patient_name = ?, patient_gender = ?, patient_birthdate = ?, patient_clinic = ?, assesment_status = ? WHERE assesment_id = ?";
             PreparedStatement statement = connectDB.prepareStatement(query);
             statement.setString(1, this.patientName);
             statement.setInt(2, this.patientGender);
