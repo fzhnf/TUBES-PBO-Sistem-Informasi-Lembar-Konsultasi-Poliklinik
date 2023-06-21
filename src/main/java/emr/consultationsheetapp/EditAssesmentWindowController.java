@@ -13,7 +13,7 @@ import java.net.URL;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.util.Date;
+import java.sql.Date;
 import java.util.ResourceBundle;
 
 public class EditAssesmentWindowController implements Initializable {
@@ -45,7 +45,7 @@ public class EditAssesmentWindowController implements Initializable {
         } else {
             String name = InputTextName.getText();
             LocalDate birthdateValue = InputBirthDate.getValue();
-            Date birthdate = Date.from(Instant.from(birthdateValue));
+            Date birthdate = java.sql.Date.valueOf(birthdateValue);
             int gender = priaSelected.isSelected() ? 1 : 2;
             int clinicIndex = clinicDropdownOption.getSelectionModel().getSelectedIndex();
             int clinic = clinicIndex + 1;

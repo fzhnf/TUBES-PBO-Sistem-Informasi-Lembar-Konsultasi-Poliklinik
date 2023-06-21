@@ -2,7 +2,7 @@ package emr.consultationsheetapp;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Date;
+import java.sql.Date;
 
 public class PatientDAO extends PatientModel {
     static DBUtil database = new DBUtil();

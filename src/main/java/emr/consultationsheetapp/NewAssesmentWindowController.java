@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.util.Date;
+import java.sql.Date;
 import java.util.ResourceBundle;
 
 public class NewAssesmentWindowController implements Initializable {
@@ -43,7 +43,7 @@ public class NewAssesmentWindowController implements Initializable {
         } else {
             String patientName = InputTextName.getText();
             LocalDate localDate = InputBirthDate.getValue();
-            Date date = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
+            Date date = java.sql.Date.valueOf(localDate);
             int patientGender = priaSelected.isSelected() ? 1 : 0;
             int clinic = clinicDropdownOption.getSelectionModel().getSelectedIndex() + 1;
             PatientDAO selectedPatient = new PatientDAO(
