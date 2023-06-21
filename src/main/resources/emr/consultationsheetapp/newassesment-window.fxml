@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="279.0" prefWidth="398.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="emr.consultationsheetapp.NewAssesmentWindowController">
+   <center>
+      <AnchorPane prefHeight="259.0" prefWidth="409.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="46.0" layoutY="54.0" text="Nama Pasien" />
+            <TextField fx:id="InputTextName" layoutX="183.0" layoutY="50.0" prefHeight="25.0" prefWidth="150.0" />
+            <Label layoutX="46.0" layoutY="94.0" text="Tgl. lahir Pasien" />
+            <DatePicker fx:id="InputBirthDate" layoutX="185.0" layoutY="90.0" prefHeight="25.0" prefWidth="147.0" />
+            <Label layoutX="46.0" layoutY="134.0" text="Jenis Kelamin Pasien" />
+            <RadioButton fx:id="priaSelected" layoutX="183.0" layoutY="134.0" mnemonicParsing="false" text="Pria">
+               <toggleGroup>
+                  <ToggleGroup fx:id="gender" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="wanitaSelected" layoutX="275.0" layoutY="134.0" mnemonicParsing="false" text="Wanita" toggleGroup="$gender" />
+            <Label layoutX="46.0" layoutY="180.0" text="Klinik" />
+            <ComboBox fx:id="clinicDropdownOption" layoutX="114.0" layoutY="176.0" prefHeight="25.0" prefWidth="150.0">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ComboBox>
+            <Button fx:id="AddNewAssesmentButton" layoutX="277.0" layoutY="176.0" mnemonicParsing="false" onAction="#AddNewAssesment" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: #a7def2; -fx-background-radius: 100;" text="Add">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+         </children>
+      </AnchorPane>
+   </center>
+   <top>
+      <AnchorPane prefHeight="15.0" prefWidth="398.0" style="-fx-background-color: #1481bb;" BorderPane.alignment="CENTER" />
+   </top>
+   <left>
+      <AnchorPane prefHeight="254.0" prefWidth="15.0" style="-fx-background-color: #1481bb;" BorderPane.alignment="CENTER" />
+   </left>
+   <right>
+      <AnchorPane prefHeight="264.0" prefWidth="0.0" BorderPane.alignment="CENTER" />
+   </right>
+   <bottom>
+      <AnchorPane prefHeight="0.0" prefWidth="398.0" BorderPane.alignment="CENTER" />
+   </bottom>
+   <cursor>
+      <Cursor fx:constant="DEFAULT" />
+   </cursor>
+</BorderPane>
