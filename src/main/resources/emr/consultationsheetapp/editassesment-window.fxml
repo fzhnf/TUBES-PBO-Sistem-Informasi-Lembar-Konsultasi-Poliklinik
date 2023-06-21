@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="279.0" prefWidth="398.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="emr.consultationsheetapp.NewAssesmentWindowController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="279.0" prefWidth="398.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="emr.consultationsheetapp.EditAssesmentWindowController">
    <center>
       <AnchorPane prefHeight="259.0" prefWidth="409.0" BorderPane.alignment="CENTER">
          <children>
@@ -31,7 +31,7 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></ComboBox>
-            <Button fx:id="AddNewAssesmentButton" layoutX="277.0" layoutY="176.0" mnemonicParsing="false" onAction="#AddNewAssesment" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: #a7def2; -fx-background-radius: 100;" text="Add">
+            <Button fx:id="EditAssesmentButton" layoutX="277.0" layoutY="176.0" mnemonicParsing="false" onAction="#EditAsssesment" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: #a7def2; -fx-background-radius: 100;" text="Change">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>

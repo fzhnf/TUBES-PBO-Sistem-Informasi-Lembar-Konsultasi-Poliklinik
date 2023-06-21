@@ -60,6 +60,3 @@ public class NewUserDoctorController implements Initializable {
         clinicDropdownOption.setItems(List);
     }
 }
-
-
-
