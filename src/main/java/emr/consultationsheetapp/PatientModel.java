@@ -3,7 +3,6 @@ package emr.consultationsheetapp;
 import java.util.Date;
 
 public abstract class PatientModel {
-    protected int patientId;
     protected String patientName;
     protected int patientGender;
     protected Date patientBirthdate;
@@ -23,13 +22,7 @@ public abstract class PatientModel {
     public PatientModel() {
     }
 
-    public int getPatientId() {
-        return patientId;
-    }
 
-    public void setPatientId(int patientId) {
-        this.patientId = patientId;
-    }
 
     public String getPatientName() {
         return patientName;
@@ -74,8 +67,7 @@ public abstract class PatientModel {
     @Override
     public String toString() {
         return "PatientModel{" +
-                "patientId=" + patientId +
-                ", patientName='" + patientName + '\'' +
+                "patientName='" + patientName + '\'' +
                 ", patientGender=" + patientGender +
                 ", patientBirthdate=" + patientBirthdate +
                 ", clinic=" + clinic +

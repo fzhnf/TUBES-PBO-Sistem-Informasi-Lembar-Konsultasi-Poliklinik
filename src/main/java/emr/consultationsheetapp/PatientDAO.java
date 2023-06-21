@@ -7,9 +7,11 @@ import java.util.Date;
 public class PatientDAO extends PatientModel {
     static DBUtil database = new DBUtil();
     int patientId;
-    public PatientDAO(String patientName, int patientGender, Date patientBirthdate, int clinic, int diagnoseStatus, int patientId) {
+    Date createdAt;
+    public PatientDAO(String patientName, int patientGender, Date patientBirthdate, int clinic, int diagnoseStatus, int patientId, Date createdAt) {
         super(patientName, patientGender, patientBirthdate, clinic, diagnoseStatus);
         this.patientId = patientId;
+        this.createdAt = createdAt;
     }
 
     public PatientDAO(String patientName, int patientGender, Date patientBirthdate, int clinic, int diagnoseStatus) {
@@ -23,17 +25,33 @@ public class PatientDAO extends PatientModel {
 
     public int getPatientId() {
         try (Connection connectDB = database.getConnection()) {
-            String query = "SELECT assesment_id FROM patient_table WHERE patient_name  = '" + this.patientName +"' AND patient_birthdate = '" + this.patientBirthdate +"' AND patient_gender = '" + this.patientGender + "' AND clinic = '" + this.clinic + "' AND diagnose = '" + this.diagnoseStatus + "'";
+            String query = "SELECT assesment_id FROM patient_table WHERE patient_name  = '" + this.patientName +"' AND patient_birthdate = '" + this.patientBirthdate +"' AND patient_gender = '" + this.patientGender + "' AND patient_clinic = '" + this.clinic + "' AND assesment_status = '" + this.diagnoseStatus + "'";
             Statement statement = connectDB.createStatement();
             ResultSet queryResult = statement.executeQuery(query);
             if (queryResult.next()) {
-                return queryResult.getInt("patient_id");
+                return queryResult.getInt("assesment_id");
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         return -1;
     }
+
+    public Date getCreatedAt() {
+        try (Connection connectDB = database.getConnection()) {
+            String query = "SELECT assesmen_createdat FROM patient_table WHERE assesment_id = '" + getPatientId() + "'";
+            Statement statement = connectDB.createStatement();
+            ResultSet queryResult = statement.executeQuery(query);
+            if (queryResult.next()) {
+                return queryResult.getDate("assesmen_createdat");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
+
+
     public String getPatientName() {
         try (Connection connectDB = database.getConnection()) {
             String query = "SELECT patient_name FROM patient_table WHERE assesment_id = '" + getPatientId() + "'";
@@ -114,7 +132,7 @@ public class PatientDAO extends PatientModel {
             Statement statement = connectDB.createStatement();
             ResultSet queryResult = statement.executeQuery(query);
             if (queryResult.next()) {
-                queryResult.getInt("diagnose");
+                queryResult.getInt("assesment_status");
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -138,7 +156,7 @@ public class PatientDAO extends PatientModel {
             Statement statement = connectDB.createStatement();
             ResultSet queryResult = statement.executeQuery(query);
             if (queryResult.next()) {
-                return queryResult.getInt("clinic");
+                return queryResult.getInt("patient_clinic");
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -187,7 +205,14 @@ public class PatientDAO extends PatientModel {
             ResultSet queryResult = statement.executeQuery(query);
             ArrayList<PatientDAO> patients = new ArrayList<>();
             while (queryResult.next()) {
-               patients.add(new PatientDAO(queryResult.getString("patient_name"), queryResult.getInt("patient_gender"), queryResult.getDate("patient_birthdate"), queryResult.getInt("clinic"), queryResult.getInt("diagnose"), queryResult.getInt("patient_id")));
+               patients.add(new PatientDAO(
+                       queryResult.getString("patient_name"),
+                       queryResult.getInt("patient_gender"),
+                       queryResult.getDate("patient_birthdate"),
+                       queryResult.getInt("patient_clinic"),
+                       queryResult.getInt("assesment_status"),
+                       queryResult.getInt("assesment_id"),
+                       queryResult.getDate("assesmen_createdat")));
             }
             System.out.println(patients.toString());
             return patients;

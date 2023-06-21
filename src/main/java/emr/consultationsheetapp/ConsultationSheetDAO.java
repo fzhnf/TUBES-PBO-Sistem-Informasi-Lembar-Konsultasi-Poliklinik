@@ -51,12 +51,12 @@ public class ConsultationSheetDAO extends ConsultationSheetModel {
             ArrayList<ConsultationSheetDAO> sheets = new ArrayList<>();
             while (queryResult.next()) {
                 sheets.add(new ConsultationSheetDAO(
-                        queryResult.getDate("sheet_created_date"),
-                        queryResult.getInt("patient_id"),
+                        queryResult.getDate("sheet_createdat"),
+                        queryResult.getInt("assesment_id"),
                         queryResult.getInt("blood_pressure"),
                         queryResult.getInt("heart_rate"),
                         queryResult.getInt("temperature"),
-                        queryResult.getInt("patient_feeling"),
+                        queryResult.getInt("feeling_rate"),
                         queryResult.getString("physical_examination"),
                         queryResult.getString("diagnosis_analysis"),
                         queryResult.getString("patient_education"),

@@ -146,8 +146,6 @@ public class AdminPatientpageController implements Initializable {
         listTglLahir.setCellValueFactory(new PropertyValueFactory<>("patientBirthdate"));
         listKlinik.setCellValueFactory(new PropertyValueFactory<>("clinic"));
         listGender.setCellValueFactory(new PropertyValueFactory<>("patientGender"));
-
-
         ListActionAssesmen.setCellFactory(param -> new TableCell<>() {
             private final Button editButton = new Button("Edit");
             private final Button deleteButton = new Button("Delete");
@@ -156,9 +154,10 @@ public class AdminPatientpageController implements Initializable {
                 editButton.setOnAction(event -> {
                     PatientDAO selectedPatient = getTableView().getItems().get(getIndex());
                     try {
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("newassesment-window.fxml"));
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("newassesmentedit-window.fxml"));
                         Parent root = loader.load();
-                        NewAssesmentWindowController controller = loader.getController();
+
+                        EditAssesmentWindowController controller = loader.getController();
                         controller.setPatient(selectedPatient);
 
                         Scene scene = new Scene(root);
@@ -193,7 +192,6 @@ public class AdminPatientpageController implements Initializable {
             @Override
             protected void updateItem(Void item, boolean empty) {
                 super.updateItem(item, empty);
-
                 if (empty) {
                     setGraphic(null);
                 } else {

@@ -42,11 +42,11 @@ public class UserDAO extends UserModel {
     }
     public String getUsername() {
         try (Connection connectDB = database.getConnection()) {
-            String query = "SELECT username FROM user_table WHERE user_id = '" + getUserId() + "'";
+            String query = "SELECT user_name FROM user_table WHERE user_id = '" + getUserId() + "'";
             Statement statement = connectDB.createStatement();
             ResultSet queryResult = statement.executeQuery(query);
             if (queryResult.next()) {
-                return queryResult.getString("username");
+                return queryResult.getString("user_name");
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -60,7 +60,7 @@ public class UserDAO extends UserModel {
             Statement statement = connectDB.createStatement();
             ResultSet queryResult = statement.executeQuery(query);
             if (queryResult.next()) {
-                return queryResult.getInt("clinic");
+                return queryResult.getInt("user_clinic");
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -71,7 +71,7 @@ public class UserDAO extends UserModel {
     @Override
     public void setUsername(String username) {
         try (Connection connectDB = database.getConnection()) {
-            String query = "UPDATE user_table SET username = '" + username + "' WHERE user_id = '" + getUserId() + "'";
+            String query = "UPDATE user_table SET user_name = '" + username + "' WHERE user_id = '" + getUserId() + "'";
             Statement statement = connectDB.createStatement();
             statement.executeUpdate(query);
         } catch (SQLException e) {

@@ -11,9 +11,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -24,44 +26,35 @@ import java.util.Date;
 import java.util.ResourceBundle;
 
 public class DoctorAssesmentController implements Initializable {
-
-
-
-    @FXML
-    private Button changeSceneTindakLanjutButton;
+    int clinic;
+    ObservableList<PatientDAO> dataPatient;
 
     @FXML
     private Button changeSceneToLembarKonsultasiButton;
 
     @FXML
-    private TableView<ConsultationSheetDAO> TabelAssesmentBaru;
+    private TableView<PatientDAO> TabelAssesmentBaru;
 
     @FXML
-    private TableColumn<ConsultationSheetDAO, Integer> listNomorTabelAssesmenBaru;
+    private TableColumn<PatientDAO, Integer> listNomorTabelAssesmenBaru;
 
     @FXML
-    private TableColumn<ConsultationSheetDAO, Date> listTglAssesmentTabelAssesmenBaru;
+    private TableColumn<PatientDAO, Date> listTglAssesmentTabelAssesmenBaru;
 
     @FXML
-    private TableColumn<ConsultationSheetDAO, String> listNamaTabelAssesmenBaru;
+    private TableColumn<PatientDAO, String> listNamaTabelAssesmenBaru;
 
     @FXML
-    private TableColumn<ConsultationSheetDAO, Integer> listJenisKelaminTabelAssesmenBaru;
+    private TableColumn<PatientDAO, Integer> listJenisKelaminTabelAssesmenBaru;
 
     @FXML
-    private TableColumn<ConsultationSheetDAO, Date> listTglLahirTabelAssesmenBaru;
+    private TableColumn<PatientDAO, Date> listTglLahirTabelAssesmenBaru;
 
     @FXML
-    private TableColumn<ConsultationSheetDAO, Void> ListActionAssesmenBaru;
+    private TableColumn<PatientDAO, Void> listActionAssesmenBaru;
 
     @FXML
     private Button logoutButton;
-
-    @FXML
-    void changeSceneTindakLanjut(ActionEvent event) throws IOException {
-
-    }
-
     @FXML
     void changeSceneToLembarKonsultasi(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("doctorhistorypage-view.fxml"));
@@ -105,20 +98,65 @@ public class DoctorAssesmentController implements Initializable {
         });
         transition.play();
     }
+    public void receiveClinic(int clinic) {
+        this.clinic = clinic;
+        System.out.println(this.clinic);
+        dataPatient.removeIf(patient -> patient.getClinic() != clinic);
+        TabelAssesmentBaru.setItems(dataPatient);
+        listNomorTabelAssesmenBaru.setCellValueFactory(new PropertyValueFactory<>("patientId"));
+        listTglAssesmentTabelAssesmenBaru.setCellValueFactory(new PropertyValueFactory<>("createdAt"));
+        listNamaTabelAssesmenBaru.setCellValueFactory(new PropertyValueFactory<>("patientName"));
+        listJenisKelaminTabelAssesmenBaru.setCellValueFactory(new PropertyValueFactory<>("patientGender"));
+        listTglLahirTabelAssesmenBaru.setCellValueFactory(new PropertyValueFactory<>("patientBirthdate"));
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        ConsultationSheetDAO sheet = new ConsultationSheetDAO();
-        ArrayList<ConsultationSheetDAO> sheets = sheet.getAllConsultationSheet();
+        PatientDAO assesment = new PatientDAO();
+        ArrayList<PatientDAO> assements = assesment.getAllPatients();
+        this.dataPatient = FXCollections.observableArrayList(assements);
+        listActionAssesmenBaru.setCellFactory(param -> new TableCell<>() {
+            private final Button editButton = new Button("Do");
+            {
+                editButton.setOnAction(event -> {
+                    PatientDAO selectedPatient = getTableView().getItems().get(getIndex());
+                    System.out.println(selectedPatient);
 
-        ObservableList<ConsultationSheetDAO> dataSheet = FXCollections.observableArrayList(sheets);
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("consultationsheet-view.fxml"));
+                    Parent root = null;
+                    try {
+                        root = loader.load();
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                    Scene scene = new Scene(root);
+                    Stage stage = (Stage) editButton.getScene().getWindow();
+                    FadeTransition fadeOut = new FadeTransition(Duration.seconds(0.5), stage.getScene().getRoot());
+                    fadeOut.setFromValue(1.0);
+                    fadeOut.setToValue(0.0);
 
-        TabelAssesmentBaru.setItems(dataSheet);
-        listNomorTabelAssesmenBaru.setCellValueFactory(new PropertyValueFactory<>("patientId"));
-        listTglAssesmentTabelAssesmenBaru.setCellValueFactory(new PropertyValueFactory<>("patientName"));
-        listNamaTabelAssesmenBaru.setCellValueFactory(new PropertyValueFactory<>("patientBirthdate"));
-        listJenisKelaminTabelAssesmenBaru.setCellValueFactory(new PropertyValueFactory<>("clinic"));
-        listTglLahirTabelAssesmenBaru.setCellValueFactory(new PropertyValueFactory<>("patientGender"));
+                    FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.5), root);
+                    fadeIn.setFromValue(0.0);
+                    fadeIn.setToValue(1.0);
 
+                    ParallelTransition transition = new ParallelTransition(fadeOut, fadeIn);
+                    transition.setOnFinished(e -> {
+                        stage.setScene(scene);
+                        stage.setTitle("Consultation Sheet");
+                    });
+                    transition.play();
+                });
+            }
+
+            @Override
+            protected void updateItem(Void item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty) {
+                    setGraphic(null);
+                } else {
+                    setGraphic(new HBox(editButton));
+                }
+            }
+        });
     }
 }

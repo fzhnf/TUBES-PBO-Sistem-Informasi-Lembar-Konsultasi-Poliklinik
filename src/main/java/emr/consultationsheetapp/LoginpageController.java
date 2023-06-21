@@ -7,10 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -40,7 +37,7 @@ public class LoginpageController {
         } else if ( userId == 0) {
             openAdminPage();
         } else {
-            openDoctorPage();
+            openDoctorPage(user.getClinic());
         }
     }
 
@@ -66,9 +63,11 @@ public class LoginpageController {
         transition.play();
     }
 
-    private void openDoctorPage() throws IOException {
+    private void openDoctorPage(int clinic) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("doctorasesmentpage-view.fxml"));
         Parent root = loader.load();
+        DoctorAssesmentController doctorAssesmentController = loader.getController();
+        doctorAssesmentController.receiveClinic(clinic);
         Scene scene = new Scene(root);
         Stage stage = (Stage) loginButton.getScene().getWindow();
         FadeTransition fadeOut = new FadeTransition(Duration.seconds(0.5), stage.getScene().getRoot());

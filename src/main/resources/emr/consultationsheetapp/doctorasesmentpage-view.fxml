@@ -15,7 +15,7 @@
    <left>
       <AnchorPane prefHeight="600.0" prefWidth="150.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="changeSceneTindakLanjutButton" layoutX="14.0" layoutY="167.0" mnemonicParsing="false" onAction="#changeSceneTindakLanjut" prefHeight="27.0" prefWidth="123.0" style="-fx-background-color: #a7def2; -fx-background-radius: 100;" text="Assesmen" textFill="#1481bb">
+            <Button fx:id="changeSceneTindakLanjutButton" layoutX="14.0" layoutY="167.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="123.0" style="-fx-background-color: #a7def2; -fx-background-radius: 100;" text="Assesmen" textFill="#1481bb">
                <font>
                   <Font size="13.0" />
                </font>
@@ -67,7 +67,7 @@
                   <TableColumn fx:id="listNamaTabelAssesmenBaru" prefWidth="133.0" text="Name" />
                   <TableColumn fx:id="listJenisKelaminTabelAssesmenBaru" maxWidth="3000.0" prefWidth="70.0" text="Gender" />
                   <TableColumn fx:id="listTglLahirTabelAssesmenBaru" prefWidth="137.0" text="Birthdate" />
-                  <TableColumn fx:id="ListActionAssesmenBaru" maxWidth="94.0" prefWidth="79.0" text="Action" />
+                  <TableColumn fx:id="listActionAssesmenBaru" maxWidth="94.0" prefWidth="79.0" text="Action" />
                </columns>
             </TableView>
          </center>
