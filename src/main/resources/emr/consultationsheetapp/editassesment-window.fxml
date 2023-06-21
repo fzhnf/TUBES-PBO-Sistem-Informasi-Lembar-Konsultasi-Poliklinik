@@ -31,7 +31,7 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></ComboBox>
-            <Button fx:id="AddNewAssesmentEditButton" layoutX="277.0" layoutY="176.0" mnemonicParsing="false" onAction="#AddNewAssesmentEdit" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: #a7def2; -fx-background-radius: 100;" text="Change">
+            <Button fx:id="EditAssesmentButton" layoutX="277.0" layoutY="176.0" mnemonicParsing="false" onAction="#EditAsssesment" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: #a7def2; -fx-background-radius: 100;" text="Change">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>

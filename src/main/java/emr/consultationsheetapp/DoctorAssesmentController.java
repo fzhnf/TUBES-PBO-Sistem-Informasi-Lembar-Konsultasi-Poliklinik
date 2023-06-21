@@ -1,7 +1,5 @@
 package emr.consultationsheetapp;
 
-import javafx.animation.FadeTransition;
-import javafx.animation.ParallelTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -17,7 +15,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
@@ -25,7 +22,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.ResourceBundle;
 
+import static emr.consultationsheetapp.App.transition;
+
 public class DoctorAssesmentController implements Initializable {
+    int patientId;
     int clinic;
     ObservableList<PatientDAO> dataPatient;
 
@@ -59,22 +59,13 @@ public class DoctorAssesmentController implements Initializable {
     void changeSceneToLembarKonsultasi(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("doctorhistorypage-view.fxml"));
         Parent root = loader.load();
+        DoctorHistoryPageController doctorHistoryPageController = loader.getController();
+        doctorHistoryPageController.receiveClinic(clinic);
+        doctorHistoryPageController.showTableItems();
         Scene scene = new Scene(root);
         Stage stage = (Stage) changeSceneToLembarKonsultasiButton.getScene().getWindow();
-        FadeTransition fadeOut = new FadeTransition(Duration.seconds(0.5), stage.getScene().getRoot());
-        fadeOut.setFromValue(1.0);
-        fadeOut.setToValue(0.0);
-
-        FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.5), root);
-        fadeIn.setFromValue(0.0);
-        fadeIn.setToValue(1.0);
-
-        ParallelTransition transition = new ParallelTransition(fadeOut, fadeIn);
-        transition.setOnFinished(e -> {
-            stage.setScene(scene);
-            stage.setTitle("History e-ConsultationSheet");
-        });
-        transition.play();
+        stage.setResizable(false);
+        transition(root, scene, stage, "History e-ConsultationSheet");
     }
 
     @FXML
@@ -83,24 +74,17 @@ public class DoctorAssesmentController implements Initializable {
         Parent root = loader.load();
         Scene scene = new Scene(root);
         Stage stage = (Stage) logoutButton.getScene().getWindow();
-        FadeTransition fadeOut = new FadeTransition(Duration.seconds(0.5), stage.getScene().getRoot());
-        fadeOut.setFromValue(1.0);
-        fadeOut.setToValue(0.0);
-
-        FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.5), root);
-        fadeIn.setFromValue(0.0);
-        fadeIn.setToValue(1.0);
-
-        ParallelTransition transition = new ParallelTransition(fadeOut, fadeIn);
-        transition.setOnFinished(e -> {
-            stage.setScene(scene);
-            stage.setTitle("e-ConsultationSheet");
-        });
-        transition.play();
+        stage.setResizable(false);
+        transition(root, scene, stage, "e-ConsultationSheet");
     }
     public void receiveClinic(int clinic) {
         this.clinic = clinic;
         dataPatient.removeIf(patient -> patient.getClinic() != clinic);
+    }
+
+
+
+    void showTableItems() {
         TabelAssesmentBaru.setItems(dataPatient);
         listNomorTabelAssesmenBaru.setCellValueFactory(new PropertyValueFactory<>("patientId"));
         listTglAssesmentTabelAssesmenBaru.setCellValueFactory(new PropertyValueFactory<>("createdAt"));
@@ -119,31 +103,24 @@ public class DoctorAssesmentController implements Initializable {
             {
                 editButton.setOnAction(event -> {
                     PatientDAO selectedPatient = getTableView().getItems().get(getIndex());
-
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("consultationsheet-view.fxml"));
-                    Parent root = null;
+                    int patientId = selectedPatient.getPatientId();
                     try {
-                        root = loader.load();
+                        changeScenetoSheetEditor(patientId);
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
-                    Scene scene = new Scene(root);
-                    Stage stage = (Stage) editButton.getScene().getWindow();
-                    FadeTransition fadeOut = new FadeTransition(Duration.seconds(0.5), stage.getScene().getRoot());
-                    fadeOut.setFromValue(1.0);
-                    fadeOut.setToValue(0.0);
-
-                    FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.5), root);
-                    fadeIn.setFromValue(0.0);
-                    fadeIn.setToValue(1.0);
-
-                    ParallelTransition transition = new ParallelTransition(fadeOut, fadeIn);
-                    transition.setOnFinished(e -> {
-                        stage.setScene(scene);
-                        stage.setTitle("Consultation Sheet");
-                    });
-                    transition.play();
                 });
+            }
+
+            private void changeScenetoSheetEditor(int patientId) throws IOException {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("consultationsheet-view.fxml"));
+                Parent root = loader.load();
+                ConsultationSheetController consultationSheetController = loader.getController();
+                consultationSheetController.receiveId(patientId);
+                Scene scene = new Scene(root);
+                Stage stage = (Stage) editButton.getScene().getWindow();
+                stage.setResizable(false);
+                transition(root, scene, stage, "Consultation Sheet");
             }
 
             @Override

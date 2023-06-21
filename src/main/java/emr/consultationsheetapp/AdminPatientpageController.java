@@ -16,8 +16,8 @@ import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -68,6 +68,7 @@ public class AdminPatientpageController implements Initializable {
 
     @FXML
     public void refresh(ActionEvent event) {
+
         PatientDAO patientDAO = new PatientDAO();
         ArrayList<PatientDAO> patients;
         patients = patientDAO.getAllPatients();
@@ -92,6 +93,8 @@ public class AdminPatientpageController implements Initializable {
         Parent root = loader.load();
         Scene scene = new Scene(root);
         Stage stage = (Stage) changeScenetoAdministrasiDokterButton.getScene().getWindow();
+        stage.setResizable(false);
+        transition(root, scene, stage, "Doctor Administration e-ConsultationSheet");
     }
     @FXML
     void logout(ActionEvent event) throws IOException {
@@ -99,6 +102,7 @@ public class AdminPatientpageController implements Initializable {
         Parent root = loader.load();
         Scene scene = new Scene(root);
         Stage stage = (Stage) logoutButton.getScene().getWindow();
+        stage.setResizable(false);
         transition(root, scene, stage,"e-ConsultationSheet");
     }
     @Override
@@ -121,13 +125,13 @@ public class AdminPatientpageController implements Initializable {
             {
                 editButton.setOnAction(event -> {
                     PatientDAO selectedPatient = getTableView().getItems().get(getIndex());
+                    selectedPatient.updatePatient();
                     try {
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("newassesmentedit-window.fxml"));
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("editassesment-window.fxml"));
                         Parent root = loader.load();
 
                         EditAssesmentWindowController controller = loader.getController();
                         controller.setPatient(selectedPatient);
-
                         Scene scene = new Scene(root);
                         Stage stage = new Stage();
                         stage.setScene(scene);

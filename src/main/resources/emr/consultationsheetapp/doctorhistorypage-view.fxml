@@ -67,7 +67,7 @@
                   <TableColumn fx:id="listNamaTabelAssesmenLama" prefWidth="133.0" text="Name" />
                   <TableColumn fx:id="listJenisKelaminTabelAssesmenLama" maxWidth="3000.0" prefWidth="70.0" text="Gender" />
                   <TableColumn fx:id="listTglLahirTabelAssesmenLama" prefWidth="137.0" text="Birthdate" />
-                  <TableColumn fx:id="ListActionAssesmenLama" maxWidth="94.0" prefWidth="79.0" text="Action" />
+                  <TableColumn fx:id="listActionAssesmenLama" maxWidth="94.0" prefWidth="79.0" text="Action" />
                </columns>
             </TableView>
          </center>

@@ -2,7 +2,6 @@ package emr.consultationsheetapp;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.sql.Date;
 
 public class PatientDAO extends PatientModel {
     static DBUtil database = new DBUtil();
@@ -227,13 +226,15 @@ public class PatientDAO extends PatientModel {
         try (Connection connectDB = database.getConnection()) {
             String query = "UPDATE patient_table SET patient_name = ?, patient_gender = ?, patient_birthdate = ?, patient_clinic = ?, assesment_status = ? WHERE assesment_id = ?";
             PreparedStatement statement = connectDB.prepareStatement(query);
-            statement.setString(1, this.patientName);
-            statement.setInt(2, this.patientGender);
-            statement.setDate(3, new java.sql.Date(this.patientBirthdate.getTime()));
-            statement.setInt(4, this.clinic);
-            statement.setInt(5, this.diagnoseStatus);
-            statement.setInt(6, this.patientId);
-            statement.executeUpdate();
+            statement.setString(1, patientName);
+            statement.setInt(2, patientGender);
+            statement.setDate(3, new java.sql.Date(patientBirthdate.getTime()));
+            statement.setInt(4, clinic);
+            statement.setInt(5, diagnoseStatus);
+            statement.setInt(6, patientId);
+            System.out.println(statement);
+            statement.execute();
+            //statement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

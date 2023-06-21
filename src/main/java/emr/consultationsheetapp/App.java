@@ -18,6 +18,7 @@ public class App extends Application {
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("e-ConsultationSheet");
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
     public static void transition(Parent root, Scene scene, Stage stage, String title) {

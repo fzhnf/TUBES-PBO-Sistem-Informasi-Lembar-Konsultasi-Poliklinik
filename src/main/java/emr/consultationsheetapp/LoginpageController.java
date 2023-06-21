@@ -56,6 +56,7 @@ public class LoginpageController {
         Parent root = loader.load();
         DoctorAssesmentController doctorAssesmentController = loader.getController();
         doctorAssesmentController.receiveClinic(clinic);
+        doctorAssesmentController.showTableItems();
         Scene scene = new Scene(root);
         Stage stage = (Stage) loginButton.getScene().getWindow();
         transition(root, scene, stage, "Admin Doctor e-ConsultationSheet");

@@ -1,7 +1,5 @@
 package emr.consultationsheetapp;
 
-import javafx.animation.FadeTransition;
-import javafx.animation.ParallelTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,13 +13,14 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
+
+import static emr.consultationsheetapp.App.transition;
 
 public class AdminDoctorpageController implements Initializable {
 
@@ -51,14 +50,11 @@ public class AdminDoctorpageController implements Initializable {
     private TableColumn<UserDAO, Void> ListActionAssesmen;
 
 
-
-
     @FXML
     private Button logoutButton;
 
     @FXML
     private Button refreshButton;
-
 
     @FXML
     void refresh(ActionEvent event) {
@@ -88,20 +84,8 @@ public class AdminDoctorpageController implements Initializable {
         Parent root = loader.load();
         Scene scene = new Scene(root);
         Stage stage = (Stage) changeScenetoAddNewPatientButton.getScene().getWindow();
-        FadeTransition fadeOut = new FadeTransition(Duration.seconds(0.5), stage.getScene().getRoot());
-        fadeOut.setFromValue(1.0);
-        fadeOut.setToValue(0.0);
-
-        FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.5), root);
-        fadeIn.setFromValue(0.0);
-        fadeIn.setToValue(1.0);
-
-        ParallelTransition transition = new ParallelTransition(fadeOut, fadeIn);
-        transition.setOnFinished(e -> {
-            stage.setScene(scene);
-            stage.setTitle("AdminPatient e-ConsultationSheet");
-        });
-        transition.play();
+        stage.setResizable(false);
+        transition(root, scene, stage, "AdminPatient e-ConsultationSheet");
     }
     @FXML
     void logout(ActionEvent event) throws IOException {
@@ -109,20 +93,8 @@ public class AdminDoctorpageController implements Initializable {
         Parent root = loader.load();
         Scene scene = new Scene(root);
         Stage stage = (Stage) logoutButton.getScene().getWindow();
-        FadeTransition fadeOut = new FadeTransition(Duration.seconds(0.5), stage.getScene().getRoot());
-        fadeOut.setFromValue(1.0);
-        fadeOut.setToValue(0.0);
-
-        FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.5), root);
-        fadeIn.setFromValue(0.0);
-        fadeIn.setToValue(1.0);
-
-        ParallelTransition transition = new ParallelTransition(fadeOut, fadeIn);
-        transition.setOnFinished(e -> {
-            stage.setScene(scene);
-            stage.setTitle("e-ConsultationSheet");
-        });
-        transition.play();
+        stage.setResizable(false);
+        transition(root, scene, stage, "e-ConsultationSheet");
     }
 
     @Override

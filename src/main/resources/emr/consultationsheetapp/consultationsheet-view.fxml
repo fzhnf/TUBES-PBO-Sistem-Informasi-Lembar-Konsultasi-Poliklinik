@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="emr.consultationsheetapp.ConsultationSheetController">
    <top>
       <AnchorPane prefHeight="50.0" prefWidth="600.0" style="-fx-background-color: #a7def2;" BorderPane.alignment="CENTER">
          <children>
@@ -27,16 +27,22 @@
                   <Image url="@electronic-health-record.png" />
                </image>
             </ImageView>
-            <Button layoutX="14.0" layoutY="10.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="50.0" style="-fx-background-color: #1790D0; -fx-background-radius: 100;" text="Back" />
+            <Button fx:id="kembaliKeLamanDokter" layoutX="14.0" layoutY="10.0" mnemonicParsing="false" onAction="#kembaliKeLamanDokterButton" prefHeight="20.0" prefWidth="50.0" style="-fx-background-color: #1790D0; -fx-background-radius: 100;" text="Back" />
          </children>
       </AnchorPane>
    </top>
    <center>
-      <ScrollPane prefHeight="750.0" prefWidth="550.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+      <ScrollPane prefHeight="400.0" prefWidth="550.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <content>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1050.0" prefWidth="0.0">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1020.0" prefWidth="0.0">
                <children>
                   <Text layoutX="100.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BloodPressure:" wrappingWidth="88.0">
+                     <font>
+                        <Font name="Nirmala UI" size="13.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="inputBloodPressure" layoutX="200.0" layoutY="42.0" prefHeight="26.0" prefWidth="210.0" />
+                  <Text layoutX="415.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="mmHg" wrappingWidth="42.0">
                      <font>
                         <Font name="Nirmala UI" size="13.0" />
                      </font>
@@ -46,7 +52,19 @@
                         <Font name="Nirmala UI" size="13.0" />
                      </font>
                   </Text>
+                  <TextField fx:id="inputHeartRateBeat" layoutX="200.0" layoutY="143.0" prefHeight="26.0" prefWidth="210.0" />
+                  <Text layoutX="415.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="/minute" wrappingWidth="49.0">
+                     <font>
+                        <Font name="Nirmala UI" size="13.0" />
+                     </font>
+                  </Text>
                   <Text layoutX="100.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Body Temperature:" wrappingWidth="112.0">
+                     <font>
+                        <Font name="Nirmala UI" size="13.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="inputBodyTemperature" layoutX="217.0" layoutY="242.0" prefHeight="26.0" prefWidth="174.0" />
+                  <Text layoutX="397.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="℃" wrappingWidth="18.0">
                      <font>
                         <Font name="Nirmala UI" size="13.0" />
                      </font>
@@ -56,77 +74,59 @@
                         <Font name="Nirmala UI" size="13.0" />
                      </font>
                   </Text>
-                  <RadioButton layoutX="220.0" layoutY="345.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="15.0">
+                  <Text layoutX="211.0" layoutY="325.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sangat Sehat" textAlignment="CENTER" wrappingWidth="33.0">
+                     <font>
+                        <Font name="Nirmala UI" size="10.0" />
+                     </font>
+                  </Text>
+                  <RadioButton fx:id="sangatSehatSelected" layoutX="220.0" layoutY="345.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="15.0">
                      <toggleGroup>
-                        <ToggleGroup fx:id="Feeling" />
+                        <ToggleGroup fx:id="feelingRateRadioButton" />
                      </toggleGroup>
                   </RadioButton>
-                  <RadioButton layoutX="260.0" layoutY="345.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="15.0" toggleGroup="$Feeling" />
-                  <RadioButton layoutX="300.0" layoutY="345.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="15.0" toggleGroup="$Feeling" />
-                  <RadioButton layoutX="340.0" layoutY="345.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="15.0" toggleGroup="$Feeling" />
-                  <RadioButton layoutX="380.0" layoutY="345.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="15.0" toggleGroup="$Feeling" />
-                  <TextArea layoutX="230.0" layoutY="432.0" prefHeight="100.0" prefWidth="220.0" />
+                  <Text layoutX="255.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sehat" textAlignment="CENTER" wrappingWidth="27.0">
+                     <font>
+                        <Font name="Nirmala UI" size="10.0" />
+                     </font>
+                  </Text>
+                  <RadioButton fx:id="sehatSelected" layoutX="260.0" layoutY="345.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="15.0" toggleGroup="$feelingRateRadioButton" />
+                  <Text layoutX="292.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sedang" textAlignment="CENTER" wrappingWidth="34.0">
+                     <font>
+                        <Font name="Nirmala UI" size="10.0" />
+                     </font>
+                  </Text>
+                  <RadioButton fx:id="sedangSelected" layoutX="300.0" layoutY="345.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="15.0" toggleGroup="$feelingRateRadioButton" />
+                  <Text layoutX="335.0" layoutY="325.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tidak Sehat" textAlignment="CENTER" wrappingWidth="26.0">
+                     <font>
+                        <Font name="Nirmala UI" size="10.0" />
+                     </font>
+                  </Text>
+                  <RadioButton fx:id="tidakSehatSelected" layoutX="340.0" layoutY="345.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="15.0" toggleGroup="$feelingRateRadioButton" />
+                  <Text layoutX="377.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sakit" wrappingWidth="25.0">
+                     <font>
+                        <Font name="Nirmala UI" size="10.0" />
+                     </font>
+                  </Text>
+                  <RadioButton fx:id="sakitSelected" layoutX="380.0" layoutY="345.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="15.0" toggleGroup="$feelingRateRadioButton" />
                   <Text layoutX="100.0" layoutY="446.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phyisical Examination:" wrappingWidth="129.0">
                      <font>
                         <Font name="Nirmala UI" size="13.0" />
                      </font>
                   </Text>
-                  <TextArea layoutX="230.0" layoutY="610.0" prefHeight="100.0" prefWidth="220.0" />
+                  <TextArea fx:id="physicalExamTextArea" layoutX="230.0" layoutY="432.0" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="220.0" />
                   <Text layoutX="100.0" layoutY="624.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Diagnosis Detail :" wrappingWidth="150.0">
                      <font>
                         <Font name="Nirmala UI" size="13.0" />
                      </font>
                   </Text>
-                  <TextArea layoutX="230.0" layoutY="780.0" prefHeight="100.0" prefWidth="220.0" />
+                  <TextArea fx:id="diagnosisDetailTextArea" layoutX="230.0" layoutY="610.0" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="220.0" />
                   <Text layoutX="101.0" layoutY="794.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Education :" wrappingWidth="110.0">
                      <font>
                         <Font name="Nirmala UI" size="13.0" />
                      </font>
                   </Text>
-                  <TextField layoutX="200.0" layoutY="42.0" prefHeight="26.0" prefWidth="210.0" />
-                  <TextField layoutX="200.0" layoutY="143.0" prefHeight="26.0" prefWidth="210.0" />
-                  <TextField layoutX="217.0" layoutY="242.0" prefHeight="26.0" prefWidth="192.0" />
-                  <Button layoutX="150.0" layoutY="930.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="250.0" style="-fx-background-color: #a7def2; -fx-background-radius: 100;" text="SUBMIT" />
-                  <Text layoutX="420.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="mmHg" wrappingWidth="42.0">
-                     <font>
-                        <Font name="Nirmala UI" size="13.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="420.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="/minute" wrappingWidth="49.0">
-                     <font>
-                        <Font name="Nirmala UI" size="13.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="422.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="℃" wrappingWidth="18.0">
-                     <font>
-                        <Font name="Nirmala UI" size="13.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="225.0" layoutY="333.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" wrappingWidth="8.0">
-                     <font>
-                        <Font name="Nirmala UI" size="13.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="305.0" layoutY="333.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3" wrappingWidth="8.0">
-                     <font>
-                        <Font name="Nirmala UI" size="13.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="265.0" layoutY="333.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2" wrappingWidth="8.0">
-                     <font>
-                        <Font name="Nirmala UI" size="13.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="385.0" layoutY="333.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5" wrappingWidth="8.0">
-                     <font>
-                        <Font name="Nirmala UI" size="13.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="345.0" layoutY="333.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4" wrappingWidth="8.0">
-                     <font>
-                        <Font name="Nirmala UI" size="13.0" />
-                     </font>
-                  </Text>
+                  <TextArea fx:id="patientEducationTextArea" layoutX="230.0" layoutY="780.0" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="220.0" />
+                  <Button fx:id="submitSheetConsultation" layoutX="150.0" layoutY="930.0" mnemonicParsing="false" onAction="#submitSheetConsultationButton" prefHeight="30.0" prefWidth="250.0" style="-fx-background-color: #a7def2; -fx-background-radius: 100;" text="SUBMIT" />
                </children>
             </AnchorPane>
          </content>
@@ -139,6 +139,6 @@
       <AnchorPane prefHeight="400.0" prefWidth="100.0" style="-fx-background-color: #a7def2;" BorderPane.alignment="CENTER" />
    </right>
    <bottom>
-      <AnchorPane prefHeight="0.0" prefWidth="0.0" BorderPane.alignment="CENTER" />
+      <AnchorPane prefHeight="0.0" prefWidth="750.0" BorderPane.alignment="CENTER" />
    </bottom>
 </BorderPane>
