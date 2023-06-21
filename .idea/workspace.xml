@@ -5,23 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a9f3f619-434b-4c4d-a0e7-20878668c352" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/emr/consultationsheetapp/AdminDoctorpageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/emr/consultationsheetapp/AdminDoctorpageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/emr/consultationsheetapp/AdminPatientpageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/emr/consultationsheetapp/AdminPatientpageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/emr/consultationsheetapp/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/emr/consultationsheetapp/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/emr/consultationsheetapp/ConsultationSheetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/emr/consultationsheetapp/ConsultationSheetController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/emr/consultationsheetapp/DBUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/emr/consultationsheetapp/DBUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/emr/consultationsheetapp/DoctorAssesmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/emr/consultationsheetapp/DoctorAssesmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/emr/consultationsheetapp/DoctorHistoryPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/emr/consultationsheetapp/DoctorHistoryPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/emr/consultationsheetapp/EditAssesmentWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/emr/consultationsheetapp/EditAssesmentWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/emr/consultationsheetapp/LoginpageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/emr/consultationsheetapp/LoginpageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/emr/consultationsheetapp/PatientDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/emr/consultationsheetapp/PatientDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/emr/consultationsheetapp/consultationsheet-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/emr/consultationsheetapp/consultationsheet-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/emr/consultationsheetapp/doctorhistorypage-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/emr/consultationsheetapp/doctorhistorypage-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/emr/consultationsheetapp/newassesmentedit-window.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/emr/consultationsheetapp/editassesment-window.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +128,7 @@
       <workItem from="1687300711161" duration="8729000" />
       <workItem from="1687313738441" duration="15561000" />
       <workItem from="1687330401148" duration="18061000" />
-      <workItem from="1687354708056" duration="10359000" />
+      <workItem from="1687354708056" duration="10999000" />
     </task>
     <servers />
   </component>
