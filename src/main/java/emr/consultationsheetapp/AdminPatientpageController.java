@@ -1,7 +1,5 @@
 package emr.consultationsheetapp;
 
-import javafx.animation.FadeTransition;
-import javafx.animation.ParallelTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,7 +13,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
@@ -23,6 +20,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Optional;
 import java.util.ResourceBundle;
+
+import static emr.consultationsheetapp.App.transition;
 
 public class AdminPatientpageController implements Initializable {
 
@@ -53,6 +52,8 @@ public class AdminPatientpageController implements Initializable {
     @FXML
     private TableColumn<PatientDAO, Integer> listGender;
 
+    @FXML TableColumn<PatientDAO, Integer> listStatusDiagnosa;
+
     @FXML
     private TableColumn<PatientDAO, Void> ListActionAssesmen;
 
@@ -70,9 +71,7 @@ public class AdminPatientpageController implements Initializable {
         PatientDAO patientDAO = new PatientDAO();
         ArrayList<PatientDAO> patients;
         patients = patientDAO.getAllPatients();
-
         ObservableList<PatientDAO> dataPatient = FXCollections.observableArrayList(patients);
-
         patientTable.setItems(dataPatient);
     }
 
@@ -93,59 +92,28 @@ public class AdminPatientpageController implements Initializable {
         Parent root = loader.load();
         Scene scene = new Scene(root);
         Stage stage = (Stage) changeScenetoAdministrasiDokterButton.getScene().getWindow();
-        FadeTransition fadeOut = new FadeTransition(Duration.seconds(0.5), stage.getScene().getRoot());
-        fadeOut.setFromValue(1.0);
-        fadeOut.setToValue(0.0);
-
-        FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.5), root);
-        fadeIn.setFromValue(0.0);
-        fadeIn.setToValue(1.0);
-
-        ParallelTransition transition = new ParallelTransition(fadeOut, fadeIn);
-        transition.setOnFinished(e -> {
-            stage.setScene(scene);
-            stage.setTitle("AdminDoctor e-ConsultationSheet");
-        });
-        transition.play();
     }
-
     @FXML
     void logout(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("loginpage-view.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
         Stage stage = (Stage) logoutButton.getScene().getWindow();
-        FadeTransition fadeOut = new FadeTransition(Duration.seconds(0.5), stage.getScene().getRoot());
-        fadeOut.setFromValue(1.0);
-        fadeOut.setToValue(0.0);
-
-        FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.5), root);
-        fadeIn.setFromValue(0.0);
-        fadeIn.setToValue(1.0);
-
-        ParallelTransition transition = new ParallelTransition(fadeOut, fadeIn);
-        transition.setOnFinished(e -> {
-            stage.setScene(scene);
-            stage.setTitle("e-ConsultationSheet");
-        });
-        transition.play();
+        transition(root, scene, stage,"e-ConsultationSheet");
     }
-
-
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         PatientDAO patient = new PatientDAO();
         ArrayList<PatientDAO> patients = patient.getAllPatients();
 
         ObservableList<PatientDAO> dataPatient = FXCollections.observableArrayList(patients);
-
         patientTable.setItems(dataPatient);
         listNomorTabelAssesmen.setCellValueFactory(new PropertyValueFactory<>("patientId"));
         listNamaPasien.setCellValueFactory(new PropertyValueFactory<>("patientName"));
         listTglLahir.setCellValueFactory(new PropertyValueFactory<>("patientBirthdate"));
         listKlinik.setCellValueFactory(new PropertyValueFactory<>("clinic"));
         listGender.setCellValueFactory(new PropertyValueFactory<>("patientGender"));
+        listStatusDiagnosa.setCellValueFactory(new PropertyValueFactory<>("diagnoseStatus"));
         ListActionAssesmen.setCellFactory(param -> new TableCell<>() {
             private final Button editButton = new Button("Edit");
             private final Button deleteButton = new Button("Delete");

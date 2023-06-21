@@ -100,7 +100,6 @@ public class DoctorAssesmentController implements Initializable {
     }
     public void receiveClinic(int clinic) {
         this.clinic = clinic;
-        System.out.println(this.clinic);
         dataPatient.removeIf(patient -> patient.getClinic() != clinic);
         TabelAssesmentBaru.setItems(dataPatient);
         listNomorTabelAssesmenBaru.setCellValueFactory(new PropertyValueFactory<>("patientId"));
@@ -120,7 +119,6 @@ public class DoctorAssesmentController implements Initializable {
             {
                 editButton.setOnAction(event -> {
                     PatientDAO selectedPatient = getTableView().getItems().get(getIndex());
-                    System.out.println(selectedPatient);
 
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("consultationsheet-view.fxml"));
                     Parent root = null;

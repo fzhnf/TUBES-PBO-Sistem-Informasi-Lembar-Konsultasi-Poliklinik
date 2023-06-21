@@ -62,11 +62,12 @@
          <center>
             <TableView fx:id="patientTable" prefHeight="200.0" prefWidth="589.0" style="-fx-alignment: RIGHT;" BorderPane.alignment="CENTER">
                <columns>
-                  <TableColumn fx:id="listNomorTabelAssesmen" maxWidth="141.0" prefWidth="78.0" text="ID" />
-                  <TableColumn fx:id="listNamaPasien" maxWidth="300.0" minWidth="0.0" prefWidth="63.0" text="Patient Name" />
+                  <TableColumn fx:id="listNomorTabelAssesmen" maxWidth="141.0" prefWidth="40.0" text="ID" />
+                  <TableColumn fx:id="listNamaPasien" maxWidth="300.0" minWidth="0.0" prefWidth="101.0" text="Patient Name" />
                   <TableColumn fx:id="listTglLahir" maxWidth="300.0" minWidth="0.0" prefWidth="117.0" text="Birthdate" />
-                  <TableColumn fx:id="listKlinik" maxWidth="374.0" minWidth="0.0" prefWidth="83.0" text="Clinic" />
-                  <TableColumn fx:id="listGender" maxWidth="152.0" prefWidth="100.0" text="Gender" />
+                  <TableColumn fx:id="listKlinik" maxWidth="374.0" minWidth="0.0" prefWidth="46.0" text="Clinic" />
+                  <TableColumn fx:id="listGender" maxWidth="152.0" prefWidth="97.0" text="Gender" />
+                  <TableColumn fx:id="listStatusDiagnosa" maxWidth="374.0" minWidth="0.0" prefWidth="83.0" text="status" />
                   <TableColumn fx:id="ListActionAssesmen" maxWidth="556.0" prefWidth="102.0" text="Action" />
                </columns>
                <columnResizePolicy>

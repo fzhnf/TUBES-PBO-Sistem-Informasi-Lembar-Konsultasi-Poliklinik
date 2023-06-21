@@ -22,6 +22,10 @@ public class PatientDAO extends PatientModel {
         super();
     }
 
+    public PatientDAO(String patientName, int patientGender, Date patientBirthdate, int clinic) {
+        super(patientName, patientGender, patientBirthdate, clinic);
+    }
+
 
     public int getPatientId() {
         try (Connection connectDB = database.getConnection()) {
@@ -173,15 +177,14 @@ public class PatientDAO extends PatientModel {
             throw new RuntimeException(e);
         }
     }
-    public void addPatient(String patientName, int patientGender, Date patientBirthdate, int clinic) {
+    public void createPatient(String patientName, int patientGender, Date patientBirthdate, int clinic) {
         try (Connection connectDB = database.getConnection()) {
-            String query = "INSERT INTO patient_table (patient_name, patient_gender, patient_birthdate, patient_clinic, assesment_status) VALUES ( ?, ?, ?, ?, ?)";
+            String query = "INSERT INTO patient_table (patient_name, patient_gender, patient_birthdate, patient_clinic) VALUES ( ?, ?, ?, ?)";
             PreparedStatement statement = connectDB.prepareStatement(query);
             statement.setString(1, patientName);
             statement.setInt(2, patientGender);
             statement.setDate(3, (java.sql.Date) patientBirthdate);
             statement.setInt(4, clinic);
-            statement.setInt(5, 0);
             statement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -214,7 +217,6 @@ public class PatientDAO extends PatientModel {
                        queryResult.getInt("assesment_id"),
                        queryResult.getDate("assesmen_createdat")));
             }
-            System.out.println(patients.toString());
             return patients;
         } catch (SQLException e) {
             throw new RuntimeException(e);

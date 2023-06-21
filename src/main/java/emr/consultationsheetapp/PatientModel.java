@@ -22,6 +22,12 @@ public abstract class PatientModel {
     public PatientModel() {
     }
 
+    public PatientModel(String patientName, int patientGender, Date patientBirthdate, int clinic) {
+        this.patientName = patientName;
+        this.patientGender = patientGender;
+        this.patientBirthdate = patientBirthdate;
+        this.clinic = clinic;
+    }
 
 
     public String getPatientName() {

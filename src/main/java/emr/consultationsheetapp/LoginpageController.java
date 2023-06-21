@@ -1,17 +1,19 @@
 package emr.consultationsheetapp;
 
-import javafx.animation.FadeTransition;
-import javafx.animation.ParallelTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
 import java.io.IOException;
+
+import static emr.consultationsheetapp.App.transition;
 
 public class LoginpageController {
     @FXML
@@ -46,21 +48,7 @@ public class LoginpageController {
         Parent root = loader.load();
         Scene scene = new Scene(root);
         Stage stage = (Stage) loginButton.getScene().getWindow();
-
-        FadeTransition fadeOut = new FadeTransition(Duration.seconds(0.5), stage.getScene().getRoot());
-        fadeOut.setFromValue(1.0);
-        fadeOut.setToValue(0.0);
-
-        FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.5), root);
-        fadeIn.setFromValue(0.0);
-        fadeIn.setToValue(1.0);
-
-        ParallelTransition transition = new ParallelTransition(fadeOut, fadeIn);
-        transition.setOnFinished(e -> {
-            stage.setScene(scene);
-            stage.setTitle("AdminPatient e-ConsultationSheet");
-        });
-        transition.play();
+        transition(root, scene, stage, "AdminPatient e-ConsultationSheet");
     }
 
     private void openDoctorPage(int clinic) throws IOException {
@@ -70,19 +58,10 @@ public class LoginpageController {
         doctorAssesmentController.receiveClinic(clinic);
         Scene scene = new Scene(root);
         Stage stage = (Stage) loginButton.getScene().getWindow();
-        FadeTransition fadeOut = new FadeTransition(Duration.seconds(0.5), stage.getScene().getRoot());
-        fadeOut.setFromValue(1.0);
-        fadeOut.setToValue(0.0);
-
-        FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.5), root);
-        fadeIn.setFromValue(0.0);
-        fadeIn.setToValue(1.0);
-
-        ParallelTransition transition = new ParallelTransition(fadeOut, fadeIn);
-        transition.setOnFinished(e -> {
-            stage.setScene(scene);
-            stage.setTitle("Assesment e-ConsultationSheet");
-        });
-        transition.play();
+        transition(root, scene, stage, "Admin Doctor e-ConsultationSheet");
     }
+
+
+
+
 }

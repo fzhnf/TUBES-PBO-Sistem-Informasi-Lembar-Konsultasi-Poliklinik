@@ -43,16 +43,16 @@ public class NewAssesmentWindowController implements Initializable {
         } else {
             String patientName = InputTextName.getText();
             LocalDate localDate = InputBirthDate.getValue();
-            Date date = java.sql.Date.valueOf(localDate);
+            Date date = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
             int patientGender = priaSelected.isSelected() ? 1 : 0;
             int clinic = clinicDropdownOption.getSelectionModel().getSelectedIndex() + 1;
             PatientDAO selectedPatient = new PatientDAO(
                     patientName,
                     patientGender,
-                    Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant()),
-                    clinic,
-                    0);
-            selectedPatient.addPatient(patientName, patientGender, date, clinic);
+                    date,
+                    clinic);
+
+            selectedPatient.createPatient(patientName, patientGender, date, clinic);
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("SUCCES!!");
