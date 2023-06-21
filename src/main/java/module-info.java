@@ -1,8 +1,10 @@
-module tubespbo.emedicalrecords {
+module emr.consultationsheetapp {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.sql;
+    requires mysql.connector.java;
 
 
-    opens tubespbo.emedicalrecords to javafx.fxml;
-    exports tubespbo.emedicalrecords;
+    opens emr.consultationsheetapp to javafx.fxml;
+    exports emr.consultationsheetapp;
 }
